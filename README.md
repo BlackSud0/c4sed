@@ -2,15 +2,22 @@
 C4SED is a simple web-based platform, providing analysis and design of steel elements. The degree of integration, simplicity of input, and speed of design make c4sed the ideal platform for common steel elements calculations and reports.
 
 # Analysis and design Features?
-Web-based Calculations and Reports.  
-Supports uniformly Distributed, & Point Loads.  
-Fully Interactive Analysis with results updating as you edit.  
-Design based on BS 5950 standards.  
+- Design based on `BS 5950: Part 1: 1993` standards.  
+- Web-based Calculations and Reports.  
+- Supports uniformly Distributed, & Point Loads.  
+- Fully Interactive Analysis with results updating as you edit.  
+  
 
-# Supported Elements?  
-I-Sections eg UB "Simply supported, Cantilevers" , UC.  
-Angles.  
-Connections.  
+# Supported Elements? 
+UK Basic Shapes
+|Element       |Description                       |
+|--------------|----------------------------------|
+| UB           | Universal beams (Simply supported & Cantilevers) to `BS 4 : Part 1: 1993` |
+| UC           | Universal Columns to `BS 4: Part 1: 1993` |
+| E Angles     | Hot Rolled Equal Angles in accordance with `BS5950: Part 1: 1993`|
+| Base Plate   | Design Steel Base Plates Connections |
+| Connections  | Design Steels Connections |
+
 
 # Methodology
 We continuously research and implement the most modern ways of steel design based on high-level, integrated numerical analysis. We are also seriously dealing with design issues outside of the standard methods in order to offer practical solutions for the engineers in these complex fields as well.
