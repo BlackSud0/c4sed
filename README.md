@@ -1,5 +1,8 @@
-# C4SED
-C4SED is a simple web-based platform, providing analysis and design of steel elements. The degree of integration, simplicity of input, and speed of design make c4sed the ideal platform for common steel elements calculations and reports.
+<p align="center"><a href="https://blacksudo.gitbook.io/c4sed/" target="_blank"><img src="https://gblobscdn.gitbook.com/spaces%2F-Mhokt_jwan5Q-YoGAi7%2Favatar-1629754997933.png?alt=media" width="160"></a></p>
+
+# About C4SED
+C4SED is a simple web-based platform, providing analysis and design of steel elements.  
+The degree of integration, simplicity of input, and speed of design make c4sed the ideal platform for common steel elements calculations and reports.
 
 # Analysis and design Features?
 - Design based on `BS 5950: Part 1: 1993` standards.  
