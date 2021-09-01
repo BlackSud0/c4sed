@@ -1,3 +1,11 @@
+
+Homestead.json
+Homestead.yaml
+npm-debug.log
+yarn-error.log
+
+/.idea
+/.vscode
 /vendor/
 node_modules/
 npm-debug.log
@@ -17,7 +25,9 @@ public_html/hot
 
 storage/*.key
 .env
+.env.backup
 Homestead.yaml
 Homestead.json
 /.vagrant
 .phpunit.result.cache
+docker-compose.override.yml
