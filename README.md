@@ -1,64 +1,34 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<p align="center"><a href="https://blacksudo.gitbook.io/c4sed/" target="_blank"><img src="https://gblobscdn.gitbook.com/spaces%2F-Mhokt_jwan5Q-YoGAi7%2Favatar-1629754997933.png?alt=media" width="160"></a></p>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+# About C4SED
+C4SED is a simple web-based platform, providing analysis and design of steel elements. The degree of integration, simplicity of input, and speed of design make c4sed the ideal platform for common steel elements calculations and reports.
 
-## About Laravel
+# Analysis and design Features?
+- Design based on `BS 5950: Part 1: 1993` standards.  
+- Web-based Calculations and Reports.  
+- Supports uniformly Distributed, & Point Loads.  
+- Fully Interactive Analysis with results updating as you edit.  
+  
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+# Supported Elements? 
+UK Basic Shapes
+|Element       |Description                       |
+|--------------|----------------------------------|
+| UB           | Universal beams (Simply supported & Cantilevers) to `BS 4 : Part 1: 1993` |
+| UC           | Universal Columns to `BS 4: Part 1: 1993` |
+| E Angles     | Hot Rolled Equal Angles in accordance with `BS5950: Part 1: 1993`|
+| Base Plate   | Design Steel Base Plates Connections |
+| Connections  | Design Steels Connections |
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+# Methodology
+We continuously research and implement the most modern ways of steel design based on high-level, integrated numerical analysis. We are also seriously dealing with design issues outside of the standard methods in order to offer practical solutions for the engineers in these complex fields as well.
 
-## Learning Laravel
+# Technology
+We built a highly automated calculation system with modularity and flexibility in its focus. With its help, as an engineer, you can shortcut your design process, so you can focus on planning great buildings. Seeing the changes in the software and hardware used in different engineering fields, we are committed to reconstructing the outdated workflow of structural engineering, with the support of the newest on-premise and cloud-based solutions.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+# Community
+We want to support a new generation of civil engineers community where the governing working rules are collaboration and knowledge sharing. Our dream is to connect demands and solutions, engineers and developers, models and calculations from all over the world to help a truly efficient design workflow utilizing the power of the engineering community.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
-
-## Laravel Sponsors
-
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
-
-### Premium Partners
-
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[CMS Max](https://www.cmsmax.com/)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-
-## Contributing
-
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
-
-## Code of Conduct
-
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
-
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+# Security Vulnerabilities
+If you discover a security vulnerability within C4SED, please send an e-mail to Omer Bilal via omer@sud0root.com. All security vulnerabilities will be promptly addressed.
