@@ -189,7 +189,7 @@ jQuery(document).ready(function (a) {
   });
 
   // tooltip section
-  // tippy('[data-tippy-content]');
+  tippy('[data-tippy-content]');
   
     /*---------------------
         Preloader
@@ -206,6 +206,24 @@ jQuery(document).ready(function (a) {
       });
   });
 
+});
+
+window.addEventListener('swal', event => {
+  var c = event.detail.ButtonText,
+      d = event.detail.icon,
+      f = event.detail.title,
+      g = event.detail.message,
+      h = "";
+  h = {
+      title: f || '',
+      text: g || 'test message',
+      icon: d,
+      confirmButtonText: c || 'Ok',
+      confirmButtonColor:'#3085d6',
+  };
+  
+    Swal.fire(h);
+  
 });
 
 window.addEventListener('alert', event => {

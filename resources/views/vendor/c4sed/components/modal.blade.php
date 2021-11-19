@@ -56,7 +56,7 @@ $maxWidth = [
         <div class="absolute inset-0 bg-gray-500 opacity-75"></div>
     </div>
 
-    <div x-show="show" class="lg:mb-6 bg-gray-50 dark:bg-gray-800 rounded-t-lg px-6 py-4 overflow-hidden shadow-xl transform transition-all sm:rounded-lg sm:m-4 sm:max-w-xl"
+    <div x-show="show" class="lg:mb-6 bg-gray-50 dark:bg-gray-800 rounded-t-lg overflow-hidden shadow-xl transform transition-all sm:rounded-lg sm:m-4 sm:max-w-xl"
     x-transition:enter="transition ease-out duration-150"
         x-transition:enter-start="opacity-0 transform translate-y-1/2"
         x-transition:enter-end="opacity-100"

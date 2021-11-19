@@ -15,6 +15,8 @@ use App\Actions\User\DeleteUser;
 use App\Contracts\DeletesUsers;
 use App\Actions\User\UpdateUserPassword;
 use App\Contracts\UpdatesUserPasswords;
+use App\Actions\Beam\BeamCalculation;
+use App\Contracts\BeamsCalculations;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -47,6 +49,8 @@ class AppServiceProvider extends ServiceProvider
 
         app()->singleton(DeletesUsers::class, DeleteUser::class);
         app()->singleton(UpdatesUserPasswords::class, UpdateUserPassword::class);
+
+        app()->singleton(BeamsCalculations::class, BeamCalculation::class);
     }
 
     /**

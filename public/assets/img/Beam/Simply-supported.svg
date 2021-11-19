@@ -1,0 +1,37 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 230" width="700" height="230">
+	<title>Simply-supported</title>
+	<defs>
+		<image  width="1500" height="500" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABdwAAAH0AQMAAAAdS31vAAAAAXNSR0IB2cksfwAAAANQTFRFAAAAp3o92gAAAAF0Uk5TAEDm2GYAAABySURBVHic7cExAQAAAMKg9U9tCU+gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOBjcTMAAdsHhyQAAAAASUVORK5CYII="/>
+		<image width="80" height="80" id="img2" href="data:image/svg+xml;base64,PHN2ZyB2ZXJzaW9uPSIxLjIiIGJhc2VQcm9maWxlPSJ0aW55LXBzIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA4MCA4MCIgd2lkdGg9IjgwIiBoZWlnaHQ9IjgwIj4KCTx0aXRsZT5TdXBwb3J0PC90aXRsZT4KCTxzdHlsZT4KCQl0c3BhbiB7IHdoaXRlLXNwYWNlOnByZSB9CgkJLnNocDAgeyBmaWxsOiAjZmE0YTRhIH0gCgk8L3N0eWxlPgoJPHBhdGggaWQ9IkJhY2tncm91bmQiIGNsYXNzPSJzaHAwIiBkPSJNMi40IDY4TDQwIDEyTDc3LjYgNjhMMi40IDY4WiIgLz4KPC9zdmc+"/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #fa4a4a } 
+		.shp1 { fill: #3a87f2 } 
+	</style>
+	<use id="Background" href="#img1" x="-362" y="-152" />
+	<path id="Shape 5" class="shp0" d="M644.5 75.11L649.5 75.11L649.5 115.11L644.5 115.11L644.5 75.11Z" />
+	<path id="Shape 5 copy 17" class="shp0" d="M614.5 75.11L619.5 75.11L619.5 115.11L614.5 115.11L614.5 75.11Z" />
+	<path id="Shape 5 copy 16" class="shp0" d="M580.5 75.11L585.5 75.11L585.5 115.11L580.5 115.11L580.5 75.11Z" />
+	<path id="Shape 5 copy 15" class="shp0" d="M545.5 75.11L550.5 75.11L550.5 115.11L545.5 115.11L545.5 75.11Z" />
+	<path id="Shape 5 copy 14" class="shp0" d="M509.5 75.11L514.5 75.11L514.5 115.11L509.5 115.11L509.5 75.11Z" />
+	<path id="Shape 5 copy 13" class="shp0" d="M474.5 75.11L479.5 75.11L479.5 115.11L474.5 115.11L474.5 75.11Z" />
+	<path id="Shape 5 copy 12" class="shp0" d="M435.5 75.11L440.5 75.11L440.5 115.11L435.5 115.11L435.5 75.11Z" />
+	<path id="Shape 5 copy 11" class="shp0" d="M399.5 75.11L404.5 75.11L404.5 115.11L399.5 115.11L399.5 75.11Z" />
+	<path id="Shape 5 copy 10" class="shp0" d="M366.5 75.11L371.5 75.11L371.5 115.11L366.5 115.11L366.5 75.11Z" />
+	<path id="Shape 5 copy 9" class="shp0" d="M331.5 75.11L336.5 75.11L336.5 115.11L331.5 115.11L331.5 75.11Z" />
+	<path id="Shape 5 copy 8" class="shp0" d="M297.5 75.11L302.5 75.11L302.5 115.11L297.5 115.11L297.5 75.11Z" />
+	<path id="Shape 5 copy 7" class="shp0" d="M266.5 75.11L271.5 75.11L271.5 115.11L266.5 115.11L266.5 75.11Z" />
+	<path id="Shape 5 copy 6" class="shp0" d="M234.5 75.11L239.5 75.11L239.5 115.11L234.5 115.11L234.5 75.11Z" />
+	<path id="Shape 5 copy 5" class="shp0" d="M202.5 75.11L207.5 75.11L207.5 115.11L202.5 115.11L202.5 75.11Z" />
+	<path id="Shape 5 copy 4" class="shp0" d="M169.5 75.11L174.5 75.11L174.5 115.11L169.5 115.11L169.5 75.11Z" />
+	<path id="Shape 5 copy 3" class="shp0" d="M138.5 75.11L143.5 75.11L143.5 115.11L138.5 115.11L138.5 75.11Z" />
+	<path id="Shape 5 copy 2" class="shp0" d="M108.5 75.11L113.5 75.11L113.5 115.11L108.5 115.11L108.5 75.11Z" />
+	<path id="Shape 5 copy" class="shp0" d="M50.5 74.11L55.5 74.11L55.5 114.11L50.5 114.11L50.5 74.11Z" />
+	<path id="Shape 5 copy 19" class="shp0" d="M50.5 74.11L55.5 74.11L55.5 114.11L50.5 114.11L50.5 74.11Z" />
+	<path id="Shape 5 copy 18" class="shp0" d="M76.5 74.11L81.5 74.11L81.5 114.11L76.5 114.11L76.5 74.11Z" />
+	<use id="Support" href="#img2" transform="matrix(1,0,0,1,599,114)"/>
+	<use id="Support copy" href="#img2" transform="matrix(1,0,0,1,20,114)"/>
+	<path id="Shape 2" class="shp1" d="M50 114L650 114L650 125L50 125L50 114Z" />
+	<path id="Shape 7" class="shp0" d="M49.99 75.61L50.01 70.61L650.01 72.61L649.99 77.61L49.99 75.61Z" />
+</svg>

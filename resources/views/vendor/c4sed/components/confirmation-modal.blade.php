@@ -1,6 +1,6 @@
 @props(['id' => null, 'maxWidth' => null])
 
-<x-ctf-modal :id="$id" :maxWidth="$maxWidth" {{ $attributes }}>
+<x-modal :id="$id" :maxWidth="$maxWidth" {{ $attributes }}>
     <div class="px-6 py-4">
         <div class="sm:flex sm:items-start">
             <div class="mx-auto flex-shrink-0 flex items-center justify-center h-12 w-12 rounded-full bg-red-100 sm:mx-0 sm:h-10 sm:w-10">
@@ -9,7 +9,7 @@
                 </svg>
             </div>
 
-            <div class="mt-3 text-center sm:mt-0 sm:ml-4 sm:text-left">
+            <div class="sm:mt-0 sm:ml-4 sm:text-left">
                 <h3 class="text-lg mt-2 ml-2">
                     {{ $title }}
                 </h3>
@@ -21,7 +21,7 @@
         </div>
     </div>
 
-    <div class="flex flex-col items-center justify-end px-6 py-3 -mx-6 -mb-4 space-y-4 sm:space-y-0 sm:space-x-6 sm:flex-row bg-gray-200 dark:bg-gray-800">
+    <div class="flex flex-col items-center justify-end px-6 py-4 space-y-4 sm:space-y-0 sm:space-x-6 sm:flex-row bg-gray-200 dark:bg-gray-800">
         {{ $footer }}
     </div>
-</x-ctf-modal>
+</x-modal>

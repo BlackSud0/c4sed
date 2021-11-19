@@ -1,0 +1,43 @@
+<svg version="1.2" baseProfile="tiny-ps" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 700 230" width="700" height="230">
+	<title>Cantilever</title>
+	<defs>
+		<image  width="1500" height="500" id="img1" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAABdwAAAH0AQMAAAAdS31vAAAAAXNSR0IB2cksfwAAAANQTFRFAAAAp3o92gAAAAF0Uk5TAEDm2GYAAABySURBVHic7cExAQAAAMKg9U9tCU+gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAOBjcTMAAdsHhyQAAAAASUVORK5CYII="/>
+	</defs>
+	<style>
+		tspan { white-space:pre }
+		.shp0 { fill: #3a87f2 } 
+		.shp1 { fill: #fa4a4a } 
+	</style>
+	<use id="Background" href="#img1" x="-362" y="-150" />
+	<path id="Shape 6 copy 10" class="shp0" d="M47.97 208.83L50.03 213.39L17.03 228.39L14.97 223.83L47.97 208.83Z" />
+	<path id="Shape 6 copy 9" class="shp0" d="M46.97 185.83L49.03 190.39L16.03 205.39L13.97 200.83L46.97 185.83Z" />
+	<path id="Shape 6 copy 8" class="shp0" d="M46.97 161.83L49.03 166.39L16.03 181.39L13.97 176.83L46.97 161.83Z" />
+	<path id="Shape 6 copy 7" class="shp0" d="M46.97 136.83L49.03 141.39L16.03 156.39L13.97 151.83L46.97 136.83Z" />
+	<path id="Shape 6 copy 6" class="shp0" d="M46.97 113.83L49.03 118.39L16.03 133.39L13.97 128.83L46.97 113.83Z" />
+	<path id="Shape 6 copy 5" class="shp0" d="M46.97 89.83L49.03 94.39L16.03 109.39L13.97 104.83L46.97 89.83Z" />
+	<path id="Shape 6 copy 4" class="shp0" d="M46.97 65.83L49.03 70.39L16.03 85.39L13.97 80.83L46.97 65.83Z" />
+	<path id="Shape 6 copy 3" class="shp0" d="M46.97 44.83L49.03 49.39L16.03 64.39L13.97 59.83L46.97 44.83Z" />
+	<path id="Shape 6 copy 2" class="shp0" d="M46.97 23.83L49.03 28.39L16.03 43.39L13.97 38.83L46.97 23.83Z" />
+	<path id="Shape 6 copy" class="shp0" d="M47.97 4.83L50.03 9.39L17.03 24.39L14.97 19.83L47.97 4.83Z" />
+	<path id="Shape 5" class="shp1" d="M644.5 77.11L649.5 77.11L649.5 117.11L644.5 117.11L644.5 77.11Z" />
+	<path id="Shape 5 copy 17" class="shp1" d="M614.5 77.11L619.5 77.11L619.5 117.11L614.5 117.11L614.5 77.11Z" />
+	<path id="Shape 5 copy 16" class="shp1" d="M580.5 77.11L585.5 77.11L585.5 117.11L580.5 117.11L580.5 77.11Z" />
+	<path id="Shape 5 copy 15" class="shp1" d="M545.5 77.11L550.5 77.11L550.5 117.11L545.5 117.11L545.5 77.11Z" />
+	<path id="Shape 5 copy 14" class="shp1" d="M509.5 77.11L514.5 77.11L514.5 117.11L509.5 117.11L509.5 77.11Z" />
+	<path id="Shape 5 copy 13" class="shp1" d="M474.5 77.11L479.5 77.11L479.5 117.11L474.5 117.11L474.5 77.11Z" />
+	<path id="Shape 5 copy 12" class="shp1" d="M435.5 77.11L440.5 77.11L440.5 117.11L435.5 117.11L435.5 77.11Z" />
+	<path id="Shape 5 copy 11" class="shp1" d="M399.5 77.11L404.5 77.11L404.5 117.11L399.5 117.11L399.5 77.11Z" />
+	<path id="Shape 5 copy 10" class="shp1" d="M366.5 77.11L371.5 77.11L371.5 117.11L366.5 117.11L366.5 77.11Z" />
+	<path id="Shape 5 copy 9" class="shp1" d="M331.5 77.11L336.5 77.11L336.5 117.11L331.5 117.11L331.5 77.11Z" />
+	<path id="Shape 5 copy 8" class="shp1" d="M297.5 77.11L302.5 77.11L302.5 117.11L297.5 117.11L297.5 77.11Z" />
+	<path id="Shape 5 copy 7" class="shp1" d="M266.5 77.11L271.5 77.11L271.5 117.11L266.5 117.11L266.5 77.11Z" />
+	<path id="Shape 5 copy 6" class="shp1" d="M234.5 77.11L239.5 77.11L239.5 117.11L234.5 117.11L234.5 77.11Z" />
+	<path id="Shape 5 copy 5" class="shp1" d="M202.5 77.11L207.5 77.11L207.5 117.11L202.5 117.11L202.5 77.11Z" />
+	<path id="Shape 5 copy 4" class="shp1" d="M169.5 77.11L174.5 77.11L174.5 117.11L169.5 117.11L169.5 77.11Z" />
+	<path id="Shape 5 copy 3" class="shp1" d="M138.5 77.11L143.5 77.11L143.5 117.11L138.5 117.11L138.5 77.11Z" />
+	<path id="Shape 5 copy 2" class="shp1" d="M108.5 77.11L113.5 77.11L113.5 117.11L108.5 117.11L108.5 77.11Z" />
+	<path id="Shape 5 copy" class="shp1" d="M76.5 76.11L81.5 76.11L81.5 116.11L76.5 116.11L76.5 76.11Z" />
+	<path id="Shape 2" class="shp0" d="M50 116L650 116L650 127L50 127L50 116Z" />
+	<path id="Shape 7" class="shp1" d="M49.99 77.61L50.01 72.61L650.01 74.61L649.99 79.61L49.99 77.61Z" />
+	<path id="Shape 3" class="shp0" d="M47.5 4.19L52.5 4.24L50.5 214.24L45.5 214.19L47.5 4.19Z" />
+</svg>
