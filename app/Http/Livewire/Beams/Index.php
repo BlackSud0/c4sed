@@ -2,8 +2,8 @@
 
 namespace App\Http\Livewire\Beams;
 
-use Illuminate\Support\Facades\Auth;
 use Livewire\Component;
+use Illuminate\Support\Facades\Auth;
 use App\Models\CalculatedBeam;
 
 class Index extends Component
@@ -24,16 +24,8 @@ class Index extends Component
     public function mount($slug = null)
     {
         if(!is_null($slug)){
-            $beam = CalculatedBeam::where('slug',$slug)->firstOrFail();
-            
-            if($beam->status === 'succeeded'){
-                $this->beamReport = $beam;
-            }else{
-                $this->dispatchBrowserEvent('swal', [
-                    'icon' => 'error',
-                    'title' => 'Failed!',  
-                    'message' => 'You can\'t view a report of failed section :D!']);
-            }
+            $beam = CalculatedBeam::where('slug',$slug)->where('user_id',$this->user->id)->where('status','succeeded')->firstOrFail();
+            $this->beamReport = $beam;
         }
     }
     /**

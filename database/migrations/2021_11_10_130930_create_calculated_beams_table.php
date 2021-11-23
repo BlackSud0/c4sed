@@ -26,9 +26,8 @@ class CreateCalculatedBeamsTable extends Migration
             $table->integer('grade')->default(43);
             $table->string('buckling')->default(false);
             $table->string('status')->nullable();
-            $table->string('company_name')->nullable();
+            $table->string('customer_name')->nullable();
             $table->string('project_name')->nullable();
-            $table->string('subject')->nullable();
             $table->timestamps();
         });
     }

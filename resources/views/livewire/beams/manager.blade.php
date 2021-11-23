@@ -261,11 +261,9 @@
             @endif
 
             <div class="flex text-sm mt-2">
-                <input type="text" wire:model.defer="updateBeamForm.company_name" placeholder="Company Name" class="w-1/2 h-17 mr-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input">
-                <input type="text" wire:model.defer="updateBeamForm.project_name" placeholder="Project Name" class="w-1/2 h-17 ml-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input">
+                <input type="text" wire:model.defer="updateBeamForm.project_name" placeholder="Project Name" class="w-1/2 h-17 mr-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input">
+                <input type="text" wire:model.defer="updateBeamForm.customer_name" placeholder="Customer Name" class="w-1/2 h-17 ml-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input">
             </div>
-            <input type="text" wire:model.defer="updateBeamForm.subject" placeholder="Subject" class="w-full h-17 mt-2 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input">
-
             @if($sections)
             <div class="relative mt-2 text-gray-500 focus-within:text-purple-600">
                 <select wire:model.defer="updateBeamForm.designation_id" class="block w-3/4 pr-20 mt-1 text-sm text-gray-600 dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-select">
@@ -292,11 +290,9 @@
             @endif
         </form>
     </x-slot>
-
-
 </x-dialog-modal>
 
-<!-- Remove Team Member Confirmation Modal -->
+<!-- Remove Beam Confirmation Modal -->
 <x-confirmation-modal wire:model="confirmingBeamRemoval">
     <x-slot name="title">
         {{ __('Remove Analyzed Beam') }}

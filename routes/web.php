@@ -21,8 +21,12 @@ Auth::routes(['verify' => true]);
 
 Route::group(['middleware' => ['auth','verified']], function() {
     Route::get('/home', App\Http\Livewire\Home::class)->name('home');
+    
+    // Beam routes
     Route::get('/beams', App\Http\Livewire\Beams\Index::class)->name('beams');
     Route::get('/beams/reports/{slug}', App\Http\Livewire\Beams\Index::class)->name('beams.reports');
+    
+
     Route::get('/columns', App\Http\Livewire\Columns\Index::class)->name('columns');
     Route::get('/eangles', App\Http\Livewire\Eangles\Index::class)->name('eangles');
     Route::get('/baseplates', App\Http\Livewire\BasePlates\Index::class)->name('baseplates');

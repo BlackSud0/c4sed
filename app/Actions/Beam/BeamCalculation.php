@@ -71,9 +71,8 @@ class BeamCalculation implements BeamsCalculations
             'LL' => ['required', 'numeric'],
             'WL' => ['nullable', 'numeric'],
             'buckling' => ['required', 'boolean'],
-            'company_name' => ['nullable', 'string','max:255'],
+            'customer_name' => ['nullable', 'string','max:255'],
             'project_name' => ['nullable', 'string','max:255'],
-            'subject' => ['nullable', 'string','max:255'],
         ])->validate();
 
         // Authorize that the user can update the beam.
@@ -87,9 +86,8 @@ class BeamCalculation implements BeamsCalculations
                 'DL' => $input['DL'],
                 'WL' => $input['WL'],
                 'buckling' => $input['buckling'],
-                'company_name' => $input['company_name'],
+                'customer_name' => $input['customer_name'],
                 'project_name' => $input['project_name'],
-                'subject' => $input['subject'],
             ])->save();
         }else {
             throw new AuthorizationException;
@@ -261,7 +259,7 @@ class BeamCalculation implements BeamsCalculations
         */
        if ($Vmax <= 0.6 * $Pv) {
            // Moment Capacity is a low shear
-           $shear_load = "low";
+           $shear_load = "Low";
            if (in_array($section_class, ["plastic","compact"])) {
             $Mc = $Py * $Sx; // Moment Capacity
            }elseif (in_array($section_class, ["semi-compact","slender"])) {
@@ -269,7 +267,7 @@ class BeamCalculation implements BeamsCalculations
            }
        }else {
            // Moment Capacity is a high shear
-           $shear_load = "high";
+           $shear_load = "High";
            if (in_array($section_class, ["plastic","compact"])) {
             $Pt = ((2.5 * $Vmax) / $Pv) - 1.5;
             $Sv = (($t * pow($D,2)) / 4) * 0.001; // Macgiley Page No [83] , 0.001 from mm^3 to cm^3
