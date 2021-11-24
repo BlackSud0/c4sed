@@ -1,42 +1,15 @@
 
-<div class="flex my-6 justify-between">
-    <h2 class="text-2xl font-bold pb-2 tracking-wider text-gray-600 dark:text-gray-300">Calculation Report</h2>
-    <div>
-        <div class="relative mr-4 inline-block">
-            <div class="text-gray-500 zoom-in w-10 h-10 rounded-full bg-white hover:bg-gray-300 inline-flex items-center justify-center" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false" @click="printInvoice()">
-                <!-- Print this invoice! -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-printer" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
-                    <path d="M17 17h2a2 2 0 0 0 2 -2v-4a2 2 0 0 0 -2 -2h-14a2 2 0 0 0 -2 2v4a2 2 0 0 0 2 2h2" />
-                    <path d="M17 9v-4a2 2 0 0 0 -2 -2h-6a2 2 0 0 0 -2 2v4" />
-                    <rect x="7" y="13" width="10" height="8" rx="2" />
-                </svg>				  
-            </div>
-        </div>
-        
-        <div class="relative inline-block">
-            <div class="text-gray-500 zoom-in w-10 h-10 rounded-full bg-white hover:bg-gray-300 inline-flex items-center justify-center" @mouseenter="showTooltip2 = true" @mouseleave="showTooltip2 = false" @click="window.location.reload()">
-                <!-- Reload Page -->
-                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-refresh" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
-                    <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
-                    <path d="M20 11a8.1 8.1 0 0 0 -15.5 -2m-.5 -5v5h5" />
-                    <path d="M4 13a8.1 8.1 0 0 0 15.5 2m.5 5v-5h-5" />
-                </svg>	  
-            </div>
-        </div>
-    </div>
-</div>
-<div class="flex mb-10 items-center justify-center">
+<div class="flex items-center justify-center">
     <div class="box w-full border-b-2 border-purple-600 shadow-lg p-4">
         <div class="grid grid-cols-12 gap-6">
-            <div class="col-span-12 lg:col-span-6">
+            <div class="col-span-12 md:col-span-6">
                 <h1 class="flex text-3xl italic font-extrabold tracking-widest text-blue-500">
                 <img class="w-10 rounded-full mr-1" src="{{ asset('logo.svg') }}" alt="" loading="lazy">
                     C4SED
                 </h1>
                 <p class="text-base">A simple web-based platform, providing analysis and design of steel elements based on <span class="text-red-600">BS 5950: Part 1: 1990</span> standards</p>
             </div>
-            <div class="col-span-12 lg:col-span-3 border-l border-r border-gray-400 dark:border-gray-600">
+            <div class="col-span-12 md:col-span-3 border-l border-r border-gray-400 dark:border-gray-600">
                 <div class="flex p-2">
                     <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-4 text-purple-600"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                     <span class="ml-1 text-xs">
@@ -51,7 +24,7 @@
                     </span>
                 </div>
             </div>
-            <div class="col-span-12 lg:col-span-3">
+            <div class="col-span-12 md:col-span-3">
                 <div class="flex border-2 border-dashed border-gray-400 dark:border-gray-600 py-1 px-2"><span class="text-gray-900 dark:text-gray-300 text-xs">Calc No.</span><span class="ml-auto text-gray-500 dark:text-gray-400 text-xs">{{$data->beam->id}}-BEAM</span></div>
                 <div class="flex border-2 border-dashed border-gray-400 dark:border-gray-600 py-1 px-2 mt-2"><span class="text-gray-900 dark:text-gray-300 text-xs">Created at.</span><span class="ml-auto text-gray-500 dark:text-gray-400 text-xs">{{ date("M j\, Y", strtotime($data->beam->created_at)) }}</span></div>
                 <div class="flex border-2 border-dashed border-gray-400 dark:border-gray-600 py-1 px-2 mt-2"><span class="text-gray-900 dark:text-gray-300 text-xs">Updated at.</span><span class="ml-auto text-gray-500 dark:text-gray-400 text-xs">{{ date("M j\, Y", strtotime($data->beam->updated_at)) }}</span></div>
@@ -60,18 +33,18 @@
         <div class="w-full h-0.5 bg-purple-600 mt-2 mb-2"></div>
         <div class="grid grid-cols-12">
             @if($data->beam->project_name)
-                <div class="col-span-12 lg:col-span-6">
+                <div class="col-span-12 md:col-span-6">
                     <h6 class="text-lg font-semibold p-2 text-gray-700 dark:text-gray-300 text-sm">Project Name : <span class="text-xs font-medium text-gray-600 dark:text-gray-300 py-1 px-3 ml-2 border-2 border-dashed border-gray-400 dark:border-gray-600">Project Name</span></h6>
                 </div>
             @endif
             @if($data->beam->customer_name)
-                <div class="col-span-12 lg:col-span-6">
+                <div class="col-span-12 md:col-span-6">
                     <h6 class="text-lg font-semibold p-2 text-gray-700 dark:text-gray-300 text-sm">Customer Name : <span class="text-xs font-medium text-gray-600 dark:text-gray-300 py-1 px-3 ml-2 border-2 border-dashed border-gray-400 dark:border-gray-600">Sud0root Inc.</span></h6>
                 </div>
             @endif
         </div>
         <div class="grid grid-cols-12 py-2">
-            <div class="col-span-12 lg:col-span-6 px-2">
+            <div class="col-span-12 md:col-span-6 px-2">
                 <div class="flex mb-2">
                     <a class="flex-grow w-full text-blue-500 font-medium border-b-2 border-dashed border-gray-400 dark:border-gray-600 py-2 text-md">Section properties</a>
                 </div>
@@ -86,7 +59,7 @@
                 <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">S<a style="left:1pt;position:relative;top:5pt;">x</a> = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->beam->designation->Sx}} cm<a class="text-xs" style="position:relative;top:-5pt;">3</a></span><span class="ml-auto text-gray-500 text-xs">Plastic modulus (X-X)</span></div>
                 <div class="flex border-t border-b mb-6 border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">A = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->beam->designation->A}} mm<a class="text-xs" style="position:relative;top:-5pt;">2</a></span><span class="ml-auto text-gray-500 text-xs">Area of section</span></div>
             </div>
-            <div class="col-span-12 lg:col-span-6 px-2">
+            <div class="col-span-12 md:col-span-6 px-2">
                 <div class="flex mb-4">
                     <a class="flex-grow w-full text-blue-500 font-medium border-b-2 border-dashed border-gray-400 dark:border-gray-600 py-2 text-md">Beam loads & Span / Length </a>
                 </div>
@@ -108,7 +81,7 @@
         </div>
 
         <div class="grid grid-cols-12 gap-6 py-2">
-            <div class="col-span-12 lg:col-span-8 px-2">
+            <div class="col-span-12 md:col-span-8 px-2">
                 
                 <!-- Load Combinations (Load Factors) -->
                 <div class="flex mb-2">
@@ -148,7 +121,7 @@
                 @endif
 
             </div>
-            <div class="col-span-12 lg:col-span-4">
+            <div class="col-span-12 md:col-span-4">
                 @if($data->beam->beam_type === 'Simple')
                     <img alt="hero" src="{{ asset('assets/img/Beam/simple-diagram.png') }}">
                 @elseif($data->beam->beam_type === 'Cantilever')

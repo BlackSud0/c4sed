@@ -21,6 +21,7 @@ Auth::routes(['verify' => true]);
 
 Route::group(['middleware' => ['auth','verified']], function() {
     Route::get('/home', App\Http\Livewire\Home::class)->name('home');
+    Route::get('/reports/{element}/{slug}', App\Http\Livewire\Reports::class)->name('reports');
     
     // Beam routes
     Route::get('/beams', App\Http\Livewire\Beams\Index::class)->name('beams');
