@@ -1,4 +1,3 @@
-
 <div class="flex items-center justify-center">
     <div class="box w-full border-b-2 border-purple-600 shadow-lg p-4">
         <div class="grid grid-cols-12 gap-6">
@@ -34,12 +33,12 @@
         <div class="grid grid-cols-12">
             @if($data->beam->project_name)
                 <div class="col-span-12 md:col-span-6">
-                    <h6 class="text-lg font-semibold p-2 text-gray-700 dark:text-gray-300 text-sm">Project Name : <span class="text-xs font-medium text-gray-600 dark:text-gray-300 py-1 px-3 ml-2 border-2 border-dashed border-gray-400 dark:border-gray-600">Project Name</span></h6>
+                    <h6 class="text-lg font-semibold p-2 text-gray-700 dark:text-gray-300 text-sm">Project Name : <span class="text-xs font-medium text-gray-600 dark:text-gray-300 py-1 px-3 ml-2 border-2 border-dashed border-gray-400 dark:border-gray-600">{{$data->beam->project_name}}</span></h6>
                 </div>
             @endif
             @if($data->beam->customer_name)
                 <div class="col-span-12 md:col-span-6">
-                    <h6 class="text-lg font-semibold p-2 text-gray-700 dark:text-gray-300 text-sm">Customer Name : <span class="text-xs font-medium text-gray-600 dark:text-gray-300 py-1 px-3 ml-2 border-2 border-dashed border-gray-400 dark:border-gray-600">Sud0root Inc.</span></h6>
+                    <h6 class="text-lg font-semibold p-2 text-gray-700 dark:text-gray-300 text-sm">Customer Name : <span class="text-xs font-medium text-gray-600 dark:text-gray-300 py-1 px-3 ml-2 border-2 border-dashed border-gray-400 dark:border-gray-600">{{$data->beam->customer_name}}</span></h6>
                 </div>
             @endif
         </div>

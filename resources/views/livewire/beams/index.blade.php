@@ -5,7 +5,7 @@
         <h2 class="text-2xl font-bold pb-2 tracking-wider text-gray-600 dark:text-gray-300">Calculation Report</h2>
         <div>
             <div class="relative mr-4 inline-block">
-                <div class="text-gray-500 zoom-in w-10 h-10 rounded-full bg-white hover:bg-gray-300 inline-flex items-center justify-center" @mouseenter="showTooltip = true" @mouseleave="showTooltip = false" @click="printInvoice()">
+                <div class="text-gray-500 zoom-in w-10 h-10 rounded-full bg-white hover:bg-gray-300 inline-flex items-center justify-center" data-tippy-content="Print Report">
                     <!-- Print this invoice! -->
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-printer" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="0" y="0" width="24" height="24" stroke="none"></rect>
@@ -17,7 +17,7 @@
             </div>
             
             <div class="relative inline-block">
-                <div class="text-gray-500 zoom-in w-10 h-10 rounded-full bg-white hover:bg-gray-300 inline-flex items-center justify-center" @mouseenter="showTooltip2 = true" @mouseleave="showTooltip2 = false" @click="window.location.reload()">
+                <div class="text-gray-500 zoom-in w-10 h-10 rounded-full bg-white hover:bg-gray-300 inline-flex items-center justify-center" data-tippy-content="Reload Page" @click="window.location.reload()">
                     <!-- Reload Page -->
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-refresh" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
                         <rect x="0" y="0" width="24" height="24" stroke="none"></rect>

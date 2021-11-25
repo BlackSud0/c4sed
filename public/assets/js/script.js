@@ -209,20 +209,32 @@ jQuery(document).ready(function (a) {
 });
 
 window.addEventListener('swal', event => {
-  var c = event.detail.ButtonText,
-      d = event.detail.icon,
-      f = event.detail.title,
-      g = event.detail.message,
+  var c = event.detail.icon,
+      d = event.detail.title,
+      f = event.detail.message,
+      g = event.detail.confirmButtonText,
+      i = event.detail.showCancelButton,
+      j = event.detail.cancelButtonText,
+      redirect = event.detail.redirect,
+      
       h = "";
   h = {
-      title: f || '',
-      text: g || 'test message',
-      icon: d,
-      confirmButtonText: c || 'Ok',
-      confirmButtonColor:'#3085d6',
+      title: d || '',
+      text: f || 'test message',
+      icon: c,
+      confirmButtonText: g || 'Ok',
+      confirmButtonColor:'#28a745',
+      showCancelButton: i || false,
+      cancelButtonColor: '#dc3545',
+      cancelButtonText: j || 'No, cancel!',
+      reverseButtons: true,
   };
   
-    Swal.fire(h);
+    Swal.fire(h).then((result) => {
+      if (result.isConfirmed) {
+        redirect ? location.replace(redirect) : null
+      }
+    });
   
 });
 
