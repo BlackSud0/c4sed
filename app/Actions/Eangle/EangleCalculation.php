@@ -1,32 +1,31 @@
 <?php
 
-namespace App\Actions\Column;
+namespace App\Actions\Eangle;
 
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Str;
 
-use App\Contracts\ColumnsCalculations;
-use App\Models\CalculatedColumn;
-use App\Models\Column;
-use App\Models\Beam;
+use App\Contracts\EanglesCalculations;
+use App\Models\CalculatedEangle;
+use App\Models\Eangle;
 use App\Models\Grade;
 use \stdClass;
 
 
-class ColumnCalculation implements ColumnsCalculations
+class EangleCalculation implements EanglesCalculations
 {
 
     /**
-     * Validate and create a newly registered column.
+     * Validate and create a newly registered eangle.
      *
      * @param  array  $input
-     * @return \App\Models\CalculatedColumn
+     * @return \App\Models\CalculatedEangle
      */
     public function create($user, array $input)
     {
         Validator::make($input, [
-            'column_type' => ['required', 'string'],
+            'eangle_type' => ['required', 'string'],
             'designation_id' => ['required', 'numeric', 'max:255'],
             'grade' => ['required', 'numeric'],
             'L' => ['required', 'numeric'],
@@ -36,9 +35,9 @@ class ColumnCalculation implements ColumnsCalculations
         ])->validate();
 
         $rand = md5(Str::random(60).time());
-        $newColumn = CalculatedColumn::create([
-            'slug' => Str::slug($input['column_type'].' '.$rand, '-'),
-            'column_type' => $input['column_type'],
+        $newEangle = CalculatedEangle::create([
+            'slug' => Str::slug($input['eangle_type'].' '.$rand, '-'),
+            'eangle_type' => $input['eangle_type'],
             'designation_id' => $input['designation_id'],
             'user_id' => $user->id,
             'grade' => $input['grade'],
@@ -48,18 +47,18 @@ class ColumnCalculation implements ColumnsCalculations
             'WL' => $input['WL'],
         ]);
 
-        $this->calculate($newColumn);
-        return $newColumn->fresh();
+        $this->calculate($newEangle);
+        return $newEangle->fresh();
     }
 
     /**
-     * Validate and create a newly registered column.
+     * Validate and create a newly registered eangle.
      *
      * @param  array  $input
-     * @return \App\Models\CalculatedColumn
+     * @return \App\Models\CalculatedEangle
      */
 
-    public function update($user, $updatedColumn, array $input)
+    public function update($user, $updatedEangle, array $input)
     {
         Validator::make($input, [
             'designation_id' => ['required', 'numeric', 'max:255'],
@@ -72,9 +71,9 @@ class ColumnCalculation implements ColumnsCalculations
             'project_name' => ['nullable', 'string','max:255'],
         ])->validate();
 
-        // Authorize that the user can update the column.
-        if ($user->id === $updatedColumn->user_id) {
-            $updatedColumn->forceFill([
+        // Authorize that the user can update the eangle.
+        if ($user->id === $updatedEangle->user_id) {
+            $updatedEangle->forceFill([
                 'designation_id' => $input['designation_id'],
                 'user_id' => $user->id,
                 'grade' => $input['grade'],
@@ -89,21 +88,21 @@ class ColumnCalculation implements ColumnsCalculations
             throw new AuthorizationException;
         }
         
-        $this->calculate($updatedColumn);
-        return $updatedColumn->fresh();
+        $this->calculate($updatedEangle);
+        return $updatedEangle->fresh();
     }
 
     /**
-     * Remove the given column from the CalculatedColumn.
+     * Remove the given eangle from the CalculatedEangle.
      * @param $user
-     * @param  \App\Models\CalculatedColumn  $column
+     * @param  \App\Models\CalculatedEangle  $eangle
      * @return void
      */
-    public function remove($user,$column)
+    public function remove($user,$eangle)
     {
-        // Authorize that the user can remove the column.
-        if ($user->id === $column->user_id) {
-            $column->delete();
+        // Authorize that the user can remove the eangle.
+        if ($user->id === $eangle->user_id) {
+            $eangle->delete();
         }else {
             throw new AuthorizationException;
         }
@@ -111,22 +110,22 @@ class ColumnCalculation implements ColumnsCalculations
     }
     
     /**
-     * Validate and calculate a newly analyzed column.
+     * Validate and calculate a newly analyzed eangle.
      *
      * @param  array  $input
      * @return array  $result
      */
-    public function calculate($column)
+    public function calculate($eangle)
     {
 
-        // Find a stored column data from the Database
-        // $column = CalculatedColumn::where('slug',$slug)->firstOrFail();
+        // Find a stored eangle data from the Database
+        // $eangle = CalculatedEangle::where('slug',$slug)->firstOrFail();
         
-        $L = $column->L;      // Span or Length
-        $DL = $column->DL;    // Dead Load
-        $LL = $column->LL;    // Live Load
-        $WL = $column->WL;    // Wind Load
-        $column_type = $column->column_type;    // "I Section" Or "H Section"
+        $L = $eangle->L;      // Span or Length
+        $DL = $eangle->DL;    // Dead Load
+        $LL = $eangle->LL;    // Live Load
+        $WL = $eangle->WL;    // Wind Load
+        $eangle_type = $eangle->eangle_type;    // "I Section" Or "H Section"
 
         /*
         * Load Combinations.
@@ -142,13 +141,13 @@ class ColumnCalculation implements ColumnsCalculations
         /*
         * Calculate maximum share and moment.
         */
-        // if ($column_type === "Simple") {
+        // if ($eangle_type === "Simple") {
         //     $Mmax = ($W * pow($L,2)) / 8;
         //     $Vmax  = ($W * $L) / 2;
-        // }elseif ($column_type === "Cantilever") {
+        // }elseif ($eangle_type === "Cantilever") {
         //     $Mmax = ($W * pow($L,2)) / 2;
         //     $Vmax  = $W * $L;
-        // }elseif ($column_type === "FixedEnd") {
+        // }elseif ($eangle_type === "FixedEnd") {
         //     $Mmax = ($W * pow($L,2)) / 12;
         //     $Vmax  = ($W * $L) / 2;
         // }else {
@@ -159,7 +158,7 @@ class ColumnCalculation implements ColumnsCalculations
          * Section properties from Database.
          */
 
-        $properties = $column->ISection;
+        $properties = $eangle->designation;
         $mass = $properties->mass;  // mass per metre
         $D = $properties->h;        // Depth of section
         $t = $properties->s;        // Thickness of Web
@@ -177,7 +176,7 @@ class ColumnCalculation implements ColumnsCalculations
         /**
          * Calculate Py and Epsilon from the Gradent.
          */
-        $grade = $column->Grades->where('thickness','>=' ,$T)->first();
+        $grade = $eangle->Grades->where('thickness','>=' ,$T)->first();
         $Py = $grade->Py; // Design strengths
         $Epsilon = sqrt(275/$Py);
         
@@ -191,44 +190,9 @@ class ColumnCalculation implements ColumnsCalculations
         if ($Pv > $Vmax) {
             $shear_OK = true;
         }else {
-            return $this->failed($column); // Please select a new Section, the previos was failed
+            return $this->failed($eangle); // Please select a new Section, the previos was failed
         }
 
-        /*
-        * Section Classification.
-        */
-
-        // Flange Classification for Rolled sections
-        if ($bT<= (8.5 * $Epsilon)) {
-            $flange_class = "plastic";
-        }elseif ($bT<= (9.5 * $Epsilon)) {
-            $flange_class = "compact";
-        }elseif ($bT<= (15 * $Epsilon)) {
-            $flange_class = "semi-compact";
-        }else {
-            $flange_class = "slender";
-            $factor = 11 / (($bT/$Epsilon) - 4); // Strength reduction factor for slender
-            $Py = $factor * $Py;
-        }
-
-        // Web Classification for Rolled sections
-        if ($dt<= (79 * $Epsilon)) {
-            $web_class = "plastic";
-        }elseif ($dt<= (98 * $Epsilon)) {
-            $web = "compact";
-        }elseif ($dt<= (120 * $Epsilon)) {
-            $web_class = "semi-compact";
-        }else {
-            $web_class = "slender";
-        }
-        
-        // Select section class / if flange_class != web_class
-        $section_class = $flange_class;
-        if ($web_class !== $flange_class) {
-            $section_class = $web_class;
-        }
-        
-        
         if ($shear_OK && $moment_OK && $defliction_OK) {
             
             $results = new stdClass();
@@ -250,7 +214,7 @@ class ColumnCalculation implements ColumnsCalculations
             
             // ddd($results);
 
-            return $this->succeeded($column,$results);
+            return $this->succeeded($eangle,$results);
         }
 
     }
@@ -259,13 +223,13 @@ class ColumnCalculation implements ColumnsCalculations
      * After ensure that the section was succeeded.
      * @return \Closure
      */
-    protected function succeeded($column,$results)
+    protected function succeeded($eangle,$results)
     {
-        $column->forceFill([
+        $eangle->forceFill([
             'status' => 'succeeded',
         ])->save();
 
-        $results->column = $column->fresh();
+        $results->eangle = $eangle->fresh();
 
         return $results;
     }
@@ -274,9 +238,9 @@ class ColumnCalculation implements ColumnsCalculations
      * After ensure that the section was failed.
      * @return \Closure
      */
-    protected function failed($column)
+    protected function failed($eangle)
     {
-        $column->forceFill([
+        $eangle->forceFill([
             'status' => 'failed',
         ])->save();
 

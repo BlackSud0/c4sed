@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Http\Livewire\Beams;
+namespace App\Http\Livewire\Columns;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
-use App\Contracts\BeamsCalculations;
+use App\Contracts\ColumnsCalculations;
 
 class Reports extends Component
 {
@@ -20,14 +20,13 @@ class Reports extends Component
      *
      * @return void
      */
-    public function mount($beam, BeamsCalculations $calculater)
+    public function mount($column, ColumnsCalculations $calculater)
     {
-        $this->report = $calculater->calculate($beam);  
+        $this->report = $calculater->calculate($column);  
     }
 
-    
     public function render()
     {
-        return view('livewire.beams.reports',['data' => $this->report]);
+        return view('livewire.columns.reports',['data' => $this->report]);
     }
 }

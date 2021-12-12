@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         // \App\Models\User::factory(10)->create();
         $this->call([
-            BeamsSeeder::class, ColumnsSeeder::class, GradesSeeder::class,
+            BeamsSeeder::class, ColumnsSeeder::class, GradesSeeder::class, EanglesSeeder::class,
         ]);
     }
 }

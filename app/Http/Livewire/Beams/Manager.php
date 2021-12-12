@@ -91,7 +91,7 @@ class Manager extends Component
         if($result->status === 'succeeded'){
             $this->dispatchBrowserEvent('swal', [
                 'icon' => 'success',
-                'title' => 'Analyed', 
+                'title' => 'Analyzed', 
                 'message' => 'Congratulations, your section was succeeded :D!',
                 'showCancelButton' => true,
                 'confirmButtonText' => 'View report!',
@@ -99,7 +99,7 @@ class Manager extends Component
         }else{
             $this->dispatchBrowserEvent('swal', [
                 'icon' => 'error',
-                'title' => 'Analyed',  
+                'title' => 'Analyzed',  
                 'message' => 'Please select a new section, the previos was failled!']);
         }
     }
@@ -132,11 +132,10 @@ class Manager extends Component
 
         $this->beamIdBeingRemoved = null;
 
-        $this->dispatchBrowserEvent('alert', [
-            'type' => 'danger',
-            'icon' => 'fa fa-shield-alt',
-            'title' => 'Beam',  
-            'message' => 'your beam successfully removed!']);
+        $this->dispatchBrowserEvent('swal', [
+            'icon' => 'success',
+            'title' => 'Removed',  
+            'message' => 'Your beam successfully removed!']);
             
     }
     

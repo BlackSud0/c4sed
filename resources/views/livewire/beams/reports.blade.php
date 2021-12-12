@@ -47,7 +47,7 @@
                 <div class="flex mb-2">
                     <a class="flex-grow w-full text-blue-500 font-medium border-b-2 border-dashed border-gray-400 dark:border-gray-600 py-2 text-md">Section properties</a>
                 </div>
-                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">Section</span><span class="ml-auto text-gray-700 dark:text-gray-300">{{$data->beam->designation->designation}}</span></div>
+                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">Section</span><span class="ml-auto text-gray-700 dark:text-gray-300">{{$data->beam->designation->designation}} UB</span><span class="ml-auto text-gray-500 text-xs">This is a {{$data->section_class}} section</span></div>
                 <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">D = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->beam->designation->h}} mm</span><span class="ml-auto text-gray-500 text-xs">Depth of section</span></div>
                 <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">t = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->beam->designation->s}} mm</span><span class="ml-auto text-gray-500 text-xs">Thickness of web</span></div>
                 <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">T = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->beam->designation->t}} mm</span><span class="ml-auto text-gray-500 text-xs">Thickness of flange</span></div>
@@ -124,7 +124,7 @@
                 @if($data->beam->beam_type === 'Simple')
                     <img alt="hero" src="{{ asset('assets/img/Beam/simple-diagram.png') }}">
                 @elseif($data->beam->beam_type === 'Cantilever')
-                    <img class="-mt-8" alt="hero" src="{{ asset('assets/img/Beam/cantilever-diagram.png') }}">
+                    <img class="-mt-4" alt="hero" src="{{ asset('assets/img/Beam/cantilever-diagram.png') }}">
                 @elseif($data->beam->beam_type === 'FixedEnd')
                 <img alt="hero" src="{{ asset('assets/img/Beam/fixed-end-diagram.png') }}">
                 @endif

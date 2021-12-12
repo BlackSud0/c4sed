@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateCalculatedColumnsTable extends Migration
+class CreateCalculatedEanglesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,10 @@ class CreateCalculatedColumnsTable extends Migration
      */
     public function up()
     {
-        Schema::create('calculated_columns', function (Blueprint $table) {
+        Schema::create('calculated_eangles', function (Blueprint $table) {
             $table->id();
             $table->string('slug')->unique();
-            $table->string('column_type');
+            $table->string('eangle_type');
             $table->unsignedBigInteger('designation_id');
             $table->unsignedBigInteger('user_id');
             $table->decimal('L', 10, 2);
@@ -38,6 +38,6 @@ class CreateCalculatedColumnsTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('calculated_columns');
+        Schema::dropIfExists('calculated_eangles');
     }
 }

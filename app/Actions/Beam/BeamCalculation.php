@@ -4,7 +4,6 @@ namespace App\Actions\Beam;
 
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Support\Facades\Validator;
-use Illuminate\Validation\Rule;
 use Illuminate\Support\Str;
 
 use App\Contracts\BeamsCalculations;
@@ -270,6 +269,7 @@ class BeamCalculation implements BeamsCalculations
            $shear_load = "High";
            if (in_array($section_class, ["plastic","compact"])) {
             $Pt = ((2.5 * $Vmax) / $Pv) - 1.5;
+            // $Sv (i.e. Dt^2/4) ????????????
             $Sv = (($t * pow($D,2)) / 4) * 0.001; // Macgiley Page No [83] , 0.001 from mm^3 to cm^3
             // $Mc = $Py * ( $Sx - $Sv * $Pt);
             $Mc = $Py * ( ($Sx - $Sv) * $Pt);  // Moment Capacity
@@ -289,6 +289,7 @@ class BeamCalculation implements BeamsCalculations
         
         /*
         * Calculate Defliction for Live Load.
+        * To Do ::: $W_Df = isset($WL) ? ($LL + $WL) * 0.8 : $LL;
         */
 
         if ($beam_type === "Simple") {

@@ -51,7 +51,7 @@ class Cantilever extends Component
         if($result->status === 'succeeded'){
             $this->dispatchBrowserEvent('swal', [
                 'icon' => 'success',
-                'title' => 'Analyed', 
+                'title' => 'Analyzed', 
                 'message' => 'Congratulations, your section was succeeded :D!',
                 'showCancelButton' => true,
                 'confirmButtonText' => 'View report!',
@@ -59,7 +59,7 @@ class Cantilever extends Component
         }else{
             $this->dispatchBrowserEvent('swal', [
                 'icon' => 'error',
-                'title' => 'Analyed',  
+                'title' => 'Analyzed',  
                 'message' => 'Please select a new section, the previos was failled!']);
         }
 

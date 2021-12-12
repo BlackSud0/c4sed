@@ -20,7 +20,6 @@ class Index extends Component
      *
      * @return void
      */
-
     public function mount($slug = null)
     {
         if(!is_null($slug)){

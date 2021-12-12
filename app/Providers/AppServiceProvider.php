@@ -13,10 +13,18 @@ use Illuminate\View\Compilers\BladeCompiler;
 
 use App\Actions\User\DeleteUser;
 use App\Contracts\DeletesUsers;
+
 use App\Actions\User\UpdateUserPassword;
 use App\Contracts\UpdatesUserPasswords;
+
 use App\Actions\Beam\BeamCalculation;
 use App\Contracts\BeamsCalculations;
+
+use App\Actions\Column\ColumnCalculation;
+use App\Contracts\ColumnsCalculations;
+
+use App\Actions\Eangle\EangleCalculation;
+use App\Contracts\EanglesCalculations;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -51,6 +59,8 @@ class AppServiceProvider extends ServiceProvider
         app()->singleton(UpdatesUserPasswords::class, UpdateUserPassword::class);
 
         app()->singleton(BeamsCalculations::class, BeamCalculation::class);
+        app()->singleton(ColumnsCalculations::class, ColumnCalculation::class);
+        app()->singleton(EanglesCalculations::class, EangleCalculation::class);
     }
 
     /**

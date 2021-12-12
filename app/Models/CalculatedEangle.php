@@ -5,10 +5,10 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class CalculatedColumn extends Model
+class CalculatedEangle extends Model
 {
     use HasFactory;
-        
+
     /**
      * The attributes that are mass assignable.
      *
@@ -31,16 +31,12 @@ class CalculatedColumn extends Model
     ];
 
     /**
-     * The CalculatedColumn Model Relationships.
+     * The CalculatedEangle Model Relationships.
      *
      */
-    public function HSection()
+    public function designation()
     {
-        return $this->belongsTo('App\Models\Column', 'designation_id', 'id');
-    }
-    public function ISection()
-    {
-        return $this->belongsTo('App\Models\Beam', 'designation_id', 'id');
+        return $this->belongsTo('App\Models\Eangle', 'designation_id', 'id');
     }
 
     public function user()

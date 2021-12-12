@@ -226,7 +226,7 @@ window.addEventListener('swal', event => {
       confirmButtonColor:'#28a745',
       showCancelButton: i || false,
       cancelButtonColor: '#dc3545',
-      cancelButtonText: j || 'No, cancel!',
+      cancelButtonText: j || 'No, close!',
       reverseButtons: true,
   };
   

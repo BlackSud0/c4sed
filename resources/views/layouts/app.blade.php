@@ -12,7 +12,6 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('assets/css/apps.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/tailwind.output.css') }}" />
-    <link type="text/css" href="{{ asset('assets/css/oldiziToast.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/sweetalert2.min.css') }}" rel="stylesheet">
     
     @livewireScripts
@@ -35,7 +34,6 @@
     <script type="text/javascript" src="{{ asset('assets/js/jquery.js') }}"></script>
     <!-- <script type="text/javascript" src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.js'></script> -->
     <script type="text/javascript" src="{{ asset('assets/js/script.js') }}"></script>
-    <script type="text/javascript" src="{{ asset('assets/js/oldiziToast.js') }}"></script>
     <!-- <script type='Popper' src='https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/esm/popper.js'></script> -->
     
     <!-- Production -->

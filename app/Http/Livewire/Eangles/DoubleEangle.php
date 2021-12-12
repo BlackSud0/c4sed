@@ -1,52 +1,49 @@
 <?php
 
-namespace App\Http\Livewire\Beams;
+namespace App\Http\Livewire\Eangles;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
-use App\Contracts\BeamsCalculations;
-use App\Models\Beam;
+use App\Contracts\EanglesCalculations;
+use App\Models\Eangle;
 
-class SimplySupported extends Component
+class DoubleEangle extends Component
 {
-
     /**
      * The component's state.
      *
      * @var array
      */
     public $state = [
-        'designation_id' => '0', // default designation value :)
+        'designation_id' => null, // default designation value :)
         'grade' => '43',        // default Grade value :D
         'L' => null,
         'DL' => null,
         'LL' => null,
         'WL' => null,
-        'buckling' => false,
-        'beam_type' => 'Simple',
+        'eangle_type' => 'Double',
     ];
-
+    
     /**
-     * Create a newly registered beam.
+     * Create a newly registered eangle.
      *
-     * @param  \App\Contracts\BeamsCalculations  $creater
+     * @param  \App\Contracts\EanglesCalculations  $creater
      * @return void
      */
-    public function CreateSimpleBeam(BeamsCalculations $creater)
+    public function CreateDoubleEangle(EanglesCalculations $creater)
     {
         $this->resetErrorBag();
 
         $result = $creater->create(Auth::user(), $this->state);
         
         $this->state = [
-            'designation_id' => '0', // default designation value :)
+            'designation_id' => null, // default designation value :)
             'grade' => '43',        // default Grade value :D
             'L' => null,
             'DL' => null,
             'LL' => null,
             'WL' => null,
-            'buckling' => false,
-            'beam_type' => 'Simple',
+            'eangle_type' => 'Double',
         ];
         
         if($result->status === 'succeeded'){
@@ -56,7 +53,7 @@ class SimplySupported extends Component
                 'message' => 'Congratulations, your section was succeeded :D!',
                 'showCancelButton' => true,
                 'confirmButtonText' => 'View report!',
-                'redirect' => route('beams.reports', $result->slug)]);
+                'redirect' => route('eangles.reports', $result->slug)]);
         }else{
             $this->dispatchBrowserEvent('swal', [
                 'icon' => 'error',
@@ -64,15 +61,14 @@ class SimplySupported extends Component
                 'message' => 'Please select a new section, the previos was failled!']);
         }
         
-        // To refresh beam manager table
+        // To refresh eangle manager table
         $this->emit('refresh-manager');
 
 
     }
-    
+
     public function render()
-    {
-        $sections = Beam::all();
-        return view('livewire.beams.simply-supported', compact('sections'));
+    {   $sections = Eangle::all();
+        return view('livewire.eangles.double-eangle', compact('sections'));
     }
 }

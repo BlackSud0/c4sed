@@ -1,52 +1,49 @@
 <?php
 
-namespace App\Http\Livewire\Beams;
+namespace App\Http\Livewire\Columns;
 
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
-use App\Contracts\BeamsCalculations;
-use App\Models\Beam;
+use App\Contracts\ColumnsCalculations;
+use App\Models\Column;
 
-class SimplySupported extends Component
+class HSections extends Component
 {
-
     /**
      * The component's state.
      *
      * @var array
      */
     public $state = [
-        'designation_id' => '0', // default designation value :)
+        'designation_id' => null, // default designation value :)
         'grade' => '43',        // default Grade value :D
         'L' => null,
         'DL' => null,
         'LL' => null,
         'WL' => null,
-        'buckling' => false,
-        'beam_type' => 'Simple',
+        'column_type' => 'HSection',
     ];
-
+    
     /**
-     * Create a newly registered beam.
+     * Create a newly registered column.
      *
-     * @param  \App\Contracts\BeamsCalculations  $creater
+     * @param  \App\Contracts\ColumnsCalculations  $creater
      * @return void
      */
-    public function CreateSimpleBeam(BeamsCalculations $creater)
+    public function CreateHSection(ColumnsCalculations $creater)
     {
         $this->resetErrorBag();
 
         $result = $creater->create(Auth::user(), $this->state);
         
         $this->state = [
-            'designation_id' => '0', // default designation value :)
+            'designation_id' => null, // default designation value :)
             'grade' => '43',        // default Grade value :D
             'L' => null,
             'DL' => null,
             'LL' => null,
             'WL' => null,
-            'buckling' => false,
-            'beam_type' => 'Simple',
+            'column_type' => 'HSection',
         ];
         
         if($result->status === 'succeeded'){
@@ -56,7 +53,7 @@ class SimplySupported extends Component
                 'message' => 'Congratulations, your section was succeeded :D!',
                 'showCancelButton' => true,
                 'confirmButtonText' => 'View report!',
-                'redirect' => route('beams.reports', $result->slug)]);
+                'redirect' => route('columns.reports', $result->slug)]);
         }else{
             $this->dispatchBrowserEvent('swal', [
                 'icon' => 'error',
@@ -64,15 +61,14 @@ class SimplySupported extends Component
                 'message' => 'Please select a new section, the previos was failled!']);
         }
         
-        // To refresh beam manager table
+        // To refresh column manager table
         $this->emit('refresh-manager');
 
 
     }
-    
+
     public function render()
-    {
-        $sections = Beam::all();
-        return view('livewire.beams.simply-supported', compact('sections'));
+    {   $sections = Column::all();
+        return view('livewire.columns.h-sections', compact('sections'));
     }
 }
