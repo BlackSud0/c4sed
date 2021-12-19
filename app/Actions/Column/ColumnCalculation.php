@@ -25,7 +25,6 @@ class ColumnCalculation implements ColumnsCalculations
      */
     public function create($user, array $input)
     {
-        // ddd($input['element_type']);
         Validator::make($input, [
             'column_type' => ['required', 'string'],
             'element_type' => ['required', 'string'],
