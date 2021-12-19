@@ -17,6 +17,7 @@ class CalculatedColumn extends Model
     protected $fillable = [
         'slug',
         'column_type',
+        'element_type',
         'designation_id',
         'user_id',
         'grade',

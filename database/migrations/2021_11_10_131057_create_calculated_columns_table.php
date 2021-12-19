@@ -17,6 +17,7 @@ class CreateCalculatedColumnsTable extends Migration
             $table->id();
             $table->string('slug')->unique();
             $table->string('column_type');
+            $table->string('element_type');
             $table->unsignedBigInteger('designation_id');
             $table->unsignedBigInteger('user_id');
             $table->decimal('L', 10, 2);

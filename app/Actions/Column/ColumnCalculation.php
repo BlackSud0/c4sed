@@ -25,8 +25,10 @@ class ColumnCalculation implements ColumnsCalculations
      */
     public function create($user, array $input)
     {
+        // ddd($input['element_type']);
         Validator::make($input, [
             'column_type' => ['required', 'string'],
+            'element_type' => ['required', 'string'],
             'designation_id' => ['required', 'numeric', 'max:255'],
             'grade' => ['required', 'numeric'],
             'L' => ['required', 'numeric'],
@@ -39,6 +41,7 @@ class ColumnCalculation implements ColumnsCalculations
         $newColumn = CalculatedColumn::create([
             'slug' => Str::slug($input['column_type'].' '.$rand, '-'),
             'column_type' => $input['column_type'],
+            'element_type' => $input['element_type'],
             'designation_id' => $input['designation_id'],
             'user_id' => $user->id,
             'grade' => $input['grade'],
@@ -62,6 +65,7 @@ class ColumnCalculation implements ColumnsCalculations
     public function update($user, $updatedColumn, array $input)
     {
         Validator::make($input, [
+            'element_type' => ['required', 'string'],
             'designation_id' => ['required', 'numeric', 'max:255'],
             'grade' => ['required', 'numeric'],
             'L' => ['required', 'numeric'],
@@ -75,6 +79,7 @@ class ColumnCalculation implements ColumnsCalculations
         // Authorize that the user can update the column.
         if ($user->id === $updatedColumn->user_id) {
             $updatedColumn->forceFill([
+                'element_type' => $input['element_type'],
                 'designation_id' => $input['designation_id'],
                 'user_id' => $user->id,
                 'grade' => $input['grade'],
@@ -127,6 +132,7 @@ class ColumnCalculation implements ColumnsCalculations
         $LL = $column->LL;    // Live Load
         $WL = $column->WL;    // Wind Load
         $column_type = $column->column_type;    // "I Section" Or "H Section"
+        $element_type = $column->element_type;  // "Internal" Or "Internal" element
 
         /*
         * Load Combinations.
@@ -139,116 +145,126 @@ class ColumnCalculation implements ColumnsCalculations
             $W = 1.4 * $DL;
         }
 
-        /*
-        * Calculate maximum share and moment.
-        */
-        // if ($column_type === "Simple") {
-        //     $Mmax = ($W * pow($L,2)) / 8;
-        //     $Vmax  = ($W * $L) / 2;
-        // }elseif ($column_type === "Cantilever") {
-        //     $Mmax = ($W * pow($L,2)) / 2;
-        //     $Vmax  = $W * $L;
-        // }elseif ($column_type === "FixedEnd") {
-        //     $Mmax = ($W * pow($L,2)) / 12;
-        //     $Vmax  = ($W * $L) / 2;
-        // }else {
-        //     abort(404);
-        // }
-
         /**
          * Section properties from Database.
          */
-
-        $properties = $column->ISection;
+        $properties = $column_type === 'HSection' ? $column->HSection : $column->HSection;
         $mass = $properties->mass;  // mass per metre
         $D = $properties->h;        // Depth of section
+        $b = $properties->h;        // Width of section
         $t = $properties->s;        // Thickness of Web
         $T = $properties->t;        // Thickness of Flange
         $bT = $properties->b2t;     // Ratios for Local Buckling - Flange
         $dt = $properties->ds;      // Ratios for Local Buckling - Web
-        $Ix = $properties->Ix;      // Second Moment of Area about X-X axis
-        $Zx = $properties->Zx;      // Elastic Modulus about X-X axis
-        $Sx = $properties->Sx;      // Plastic Modulus about X-X axis
+        $ry = $properties->ry;      // Radius of Gyration about Axis y-y
         $A  = $properties->A;       // Area of section
+        
         /**
          * Steel properties from Database.
          */
         $E = 205;
+
         /**
          * Calculate Py and Epsilon from the Gradent.
          */
         $grade = $column->Grades->where('thickness','>=' ,$T)->first();
         $Py = $grade->Py; // Design strengths
         $Epsilon = sqrt(275/$Py);
-        
-        /*
-        * Shear capacity calculation.
-        */
-        $Av = $D * $t;          // Shear area for Rolled I,H sections
-        $Pv = 0.6 * $Py * $Av * 0.001; // Shear capacity
-
-        // Check for Shear capacity
-        if ($Pv > $Vmax) {
-            $shear_OK = true;
-        }else {
-            return $this->failed($column); // Please select a new Section, the previos was failed
-        }
 
         /*
         * Section Classification.
         */
 
         // Flange Classification for Rolled sections
-        if ($bT<= (8.5 * $Epsilon)) {
-            $flange_class = "plastic";
-        }elseif ($bT<= (9.5 * $Epsilon)) {
-            $flange_class = "compact";
-        }elseif ($bT<= (15 * $Epsilon)) {
-            $flange_class = "semi-compact";
+        if ($element_type === "outstand") {
+            if ($bT<= (8.5 * $Epsilon)) {
+                $flange_class = "plastic";
+            }elseif ($bT<= (9.5 * $Epsilon)) {
+                $flange_class = "compact";
+            }elseif ($bT<= (15 * $Epsilon)) {
+                $flange_class = "semi-compact";
+            }else {
+                $flange_class = "slender";
+                $factor = 11 / (($bT/$Epsilon) - 4); // Strength reduction factor for slender
+            }
+        }elseif ($element_type === "internal") {
+            if ($bT<= (26 * $Epsilon)) {
+                $flange_class = "plastic";
+            }elseif ($bT<= (32 * $Epsilon)) {
+                $flange_class = "compact";
+            }elseif ($bT<= (39 * $Epsilon)) {
+                $flange_class = "semi-compact";
+            }else {
+                $flange_class = "slender";
+                $factor = 21 / (($bT/$Epsilon) - 7); // Strength reduction factor for slender
+            }
         }else {
-            $flange_class = "slender";
-            $factor = 11 / (($bT/$Epsilon) - 4); // Strength reduction factor for slender
-            $Py = $factor * $Py;
+            abort(404);
         }
 
         // Web Classification for Rolled sections
-        if ($dt<= (79 * $Epsilon)) {
-            $web_class = "plastic";
-        }elseif ($dt<= (98 * $Epsilon)) {
-            $web = "compact";
-        }elseif ($dt<= (120 * $Epsilon)) {
-            $web_class = "semi-compact";
+        if ($dt<= (39 * $Epsilon)) {
+            $web_class = $flange_class === "slender" ? "plastic" : $flange_class;
         }else {
             $web_class = "slender";
+            $factor = $element_type === "outstand" ? (11 / (($bT/$Epsilon) - 4)) : (21 / (($bT/$Epsilon) - 7)); // Strength reduction factor for slender
         }
-        
+
         // Select section class / if flange_class != web_class
         $section_class = $flange_class;
         if ($web_class !== $flange_class) {
             $section_class = $web_class;
         }
+        if ($section_class === "slender") {
+            $Py = $factor * $Py;
+        }
         
+        /*
+        * Compressive strength calculation.
+        */
+
+        $Pi = 3.14;  // Symbol π
+        $Lambda = ($L * 100)/ $ry;
+        $LambdaDot = 0.2 * sqrt((pow($Pi,2)*$E*1000)/$Py); // Limiting slenderness
         
-        if ($shear_OK && $moment_OK && $defliction_OK) {
+        if ($column_type === 'HSection') {
+            if ($T <= 40) {
+                $a = 5.5; // Robertson constant
+            }else {
+                $a = 8; // Robertson constant
+            }
+        }elseif ($column_type === 'ISection') {
+            $a = 3.5; // Robertson constant
+        }
+
+        $Eta = 0.001 * $a * ($Lambda - $LambdaDot); // Symbol η , Perry Factor
+        
+        $PE = (pow($Pi,2)*$E*1000)/pow($Lambda,2);  // Euler load
+        $Phi = ($Py + (($Eta+1) * $PE))/2; // Symbol Φ
+
+        $pc = ($PE * $Py) / ($Phi + sqrt(pow($Phi,2)- ($PE*$Py))); // Compressive strength
+        
+        $Pc = $A * $pc * 0.1; // Compression resistance
+        
+        // Check for Compression resistance
+        if ($Pc > $W) {
+            $Pc_OK = true;
+        }else {
+            return $this->failed($column); // Please select a new Section, the previos was failed
+        }
+        
+        if ($Pc_OK) {
             
             $results = new stdClass();
             $results->W = $W; // Load Combinations.
-            $results->Mmax = $Mmax; // Maximum moment
-            $results->Vmax = $Vmax; // Maximum share
-            $results->Vmax = $Vmax; // Maximum share
             $results->E = $E; // Steel properties
             $results->Py = $Py; // Design strengths
             $results->Epsilon = $Epsilon;
-            $results->Av = $Av; // Shear area
-            $results->Pv = $Pv; // Shear capacity
+            $results->column_type = $column_type;
             $results->section_class = $section_class; // Section Classification.
-            $results->shear_load = $shear_load; // low or high shear
-            $results->Mc = $Mc; // Moment Capacity
-            $results->check_Mc = $check_Mc; // Moment check value
-            $results->Df = $Df; // Maximum Defliction
-            $results->check_Df = $check_Df; // Defliction check value
-            
-            // ddd($results);
+            $results->Lambda = $Lambda;
+            $results->pc = $pc; // // Compressive strength
+            $results->Pc = $Pc; // Compression resistance
 
             return $this->succeeded($column,$results);
         }

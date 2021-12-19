@@ -22,6 +22,7 @@ class HSections extends Component
         'LL' => null,
         'WL' => null,
         'column_type' => 'HSection',
+        'element_type' => null
     ];
     
     /**
@@ -44,6 +45,7 @@ class HSections extends Component
             'LL' => null,
             'WL' => null,
             'column_type' => 'HSection',
+            'element_type' => null,
         ];
         
         if($result->status === 'succeeded'){

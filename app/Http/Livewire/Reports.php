@@ -5,6 +5,7 @@ namespace App\Http\Livewire;
 use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use App\Models\CalculatedBeam;
+use App\Models\CalculatedColumn;
 
 class Reports extends Component
 {
@@ -14,6 +15,7 @@ class Reports extends Component
      * @var
      */
     public $beamReport;
+    public $columnReport;
 
     /**
      * Prepare the component.
@@ -29,7 +31,8 @@ class Reports extends Component
                 $beam = CalculatedBeam::where('slug',$slug)->where('user_id',$this->user->id)->where('status','succeeded')->firstOrFail();
                 $this->beamReport = $beam;
             }elseif($element == "column"){
-                
+                $column = CalculatedColumn::where('slug',$slug)->where('user_id',$this->user->id)->where('status','succeeded')->firstOrFail();
+                $this->columnReport = $column;
             }
         }
     }
@@ -46,6 +49,6 @@ class Reports extends Component
 
     public function render()
     {
-        return view('livewire.reports',['beamReport' => $this->beamReport])->layout('layouts.reports');;
+        return view('livewire.reports',['beamReport' => $this->beamReport,'columnReport' => $this->columnReport])->layout('layouts.reports');;
     }
 }

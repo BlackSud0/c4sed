@@ -5,7 +5,7 @@
         <thead>
         <tr class="text-xs font-semibold tracking-wide text-left text-gray-500 uppercase border-b dark:border-gray-700 bg-gray-50 dark:text-gray-400 dark:bg-gray-800">
             <th class="px-4 py-3">Column</th>
-            <th class="px-4 py-3">Span/length</th>
+            <th class="px-4 py-3">length</th>
             <th class="px-4 py-3">Dead load</th>
             <th class="px-4 py-3">Live load</th>
             <th class="px-4 py-3">Wind load</th>
@@ -165,7 +165,16 @@
                     <option value="55">55</option>
                 </select>
             </div>
-
+            <div class="text-center mx-auto mt-2">
+                <label class="inline-flex items-center text-gray-600 dark:text-gray-400">
+                <input type="radio" wire:model.defer="updateColumnForm.element_type" class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray" name="element_type" value="outstand">
+                <span class="ml-1">Outstand element</span>
+                </label>
+                <label class="inline-flex items-center ml-6 text-gray-600 dark:text-gray-400">
+                <input type="radio" wire:model.defer="updateColumnForm.element_type" class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray" name="element_type" value="internal">
+                <span class="ml-1">Internal element</span>
+                </label>
+            </div>
             <div class="flex text-sm mt-2">
                 <input type="text" wire:model.defer="updateColumnForm.project_name" placeholder="Project Name" class="w-1/2 h-17 mr-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input">
                 <input type="text" wire:model.defer="updateColumnForm.customer_name" placeholder="Customer Name" class="w-1/2 h-17 ml-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input">
