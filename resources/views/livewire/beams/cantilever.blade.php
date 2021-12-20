@@ -26,9 +26,9 @@
     </select>
 </div>
 
-<div class="px-4 text-sm mt-2 text-center mx-auto">
-    <label class="flex items-center text-gray-600 dark:text-gray-400" @if($state['buckling']) wire:click="$set('state.buckling', false)" @else wire:click="$set('state.buckling', true)" @endif>
-        <input type="checkbox" @if($state['buckling'] === true) checked @endif class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
+<div class="px-4 text-sm mt-2 items-center">
+    <label class="flex items-center text-gray-600 dark:text-gray-400 justify-center" @if($state['buckling']) wire:click="$set('state.buckling', false)" @else wire:click="$set('state.buckling', true)" @endif>
+        <input type="checkbox" @if($state['buckling']) checked @endif class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
         <span class="ml-2 text-xs">
         Laterally unrestrained beam (buckling check)
         </span>

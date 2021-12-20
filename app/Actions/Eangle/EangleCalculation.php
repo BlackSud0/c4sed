@@ -68,7 +68,7 @@ class EangleCalculation implements EanglesCalculations
             'connection_type' => ['required', 'string'],
             'designation_id' => ['required', 'numeric', 'max:255'],
             'grade' => ['required', 'numeric'],
-            'L' => ['required', 'numeric'],
+            'D' => ['required', 'numeric'],
             'DL' => ['required', 'numeric'],
             'LL' => ['required', 'numeric'],
             'WL' => ['nullable', 'numeric'],
@@ -84,7 +84,7 @@ class EangleCalculation implements EanglesCalculations
                 'designation_id' => $input['designation_id'],
                 'user_id' => $user->id,
                 'grade' => $input['grade'],
-                'L' => $input['L'],
+                'D' => $input['D'],
                 'LL' => $input['LL'],
                 'DL' => $input['DL'],
                 'WL' => $input['WL'],
@@ -96,7 +96,7 @@ class EangleCalculation implements EanglesCalculations
             throw new AuthorizationException;
         }
         
-        $this->calculate($updatedEangle);
+        // $this->calculate($updatedEangle);
         return $updatedEangle->fresh();
     }
 

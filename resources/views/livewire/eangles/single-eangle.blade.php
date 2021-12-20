@@ -1,10 +1,10 @@
 <form class="form form-horizontal" wire:submit.prevent="CreateSingleEangle">
-<div class="font-medium text-center text-base text-gray-800 dark:text-gray-200">Single Eangle</div>
+<div class="font-medium text-center text-base text-gray-800 dark:text-gray-200">Single Angle</div>
 <img class="px-4" src="{{ asset('assets/img/Beam/Simply-supported.svg') }}" >
 <div class="text-center -mt-8 relative">
     <label class="font-medium text-sm text-gray-600 dark:text-gray-300" for="D">D :</label>
     <input type="text" wire:model.defer="state.D" class="w-20 h-7 text-xs text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input" placeholder="Bolt hole">
-    <label class="text-sm text-gray-600 dark:text-gray-500" for="DL">mm</label>
+    <label class="text-sm text-gray-600 dark:text-gray-500" for="D">mm</label>
 </div>
 <div class="text-gray-600 p-2 text-sm text-center mx-auto text-gray-600 dark:text-gray-500">All calculations based on Metric units KN/m</div>
 <div class="px-4 relative text-center mx-auto">

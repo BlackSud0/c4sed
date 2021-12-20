@@ -158,6 +158,6 @@ class Manager extends Component
     public function render()
     {
         $beams = CalculatedBeam::with('designation','Grades')->where('user_id',$this->user->id)->orderBy('updated_at', 'DESC')->paginate(10);
-        return view('livewire.beams.manager',['beams' => $beams]);
+        return view('livewire.beams.manager', ['beams' => $beams]);
     }
 }

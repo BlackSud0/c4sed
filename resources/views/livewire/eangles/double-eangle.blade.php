@@ -1,5 +1,5 @@
 <form class="form form-horizontal" wire:submit.prevent="CreateDoubleEangle">
-<div class="font-medium text-center text-base text-gray-800 dark:text-gray-200">Double Eangle</div>
+<div class="font-medium text-center text-base text-gray-800 dark:text-gray-200">Double Angles</div>
 <img class="px-4" src="{{ asset('assets/img/Beam/Simply-supported.svg') }}" >
 <div class="text-center -mt-8 relative">
     <label class="font-medium text-sm text-gray-600 dark:text-gray-300" for="D">D :</label>
@@ -38,10 +38,10 @@
     </label>
 </div>
 
-<div class="px-4 text-center mx-auto">
-    <label class="text-gray-600 dark:text-gray-400" @if($state['connected_to_both_sides']) wire:click="$set('state.connected_to_both_sides', false)" @else wire:click="$set('state.connected_to_both_sides', true)" @endif>
+<div class="px-4 text-sm item-center">
+    <label class="flex items-center text-gray-600 dark:text-gray-400 justify-center" @if($state['connected_to_both_sides']) wire:click="$set('state.connected_to_both_sides', false)" @else wire:click="$set('state.connected_to_both_sides', true)" @endif>
         <input type="checkbox" @if($state['connected_to_both_sides']) checked @endif class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
-        <span class="-mt-1 text-sm">
+        <span class="ml-2 mt-1 text-sm">
             Double angles connected to both sides of a gusset
         </span>
     </label>
