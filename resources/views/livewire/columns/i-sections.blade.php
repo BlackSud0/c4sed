@@ -2,7 +2,7 @@
 <div class="font-medium text-center text-base text-gray-800 dark:text-gray-200">I Section</div>
 <img class="px-4" src="{{ asset('assets/img/Beam/Cantilever.svg') }}" >
 <div class="text-center -mt-8 relative">
-    <label class="font-medium text-sm text-gray-600 dark:text-gray-300" for="DL">L :</label>
+    <label class="font-medium text-sm text-gray-600 dark:text-gray-300" for="L">L :</label>
     <input type="text" wire:model.defer="state.L" class="w-17 h-7 mr-5 text-xs text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input" placeholder="Span">
 </div>
 <div class="text-gray-600 p-2 text-sm text-center mx-auto text-gray-600 dark:text-gray-500">All calculations based on Metric units KN/m</div>
@@ -10,15 +10,15 @@
     <label class="font-medium text-sm text-gray-600 dark:text-gray-300" for="DL">D.L :</label>
     <input type="text" wire:model.defer="state.DL" class="w-24 mr-5 text-xs text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input" placeholder="Dead Load">
     
-    <label class="font-medium ml-2 text-sm text-gray-600 dark:text-gray-300" for="DL">L.L :</label>
+    <label class="font-medium ml-2 text-sm text-gray-600 dark:text-gray-300" for="LL">L.L :</label>
     <input type="text" wire:model.defer="state.LL" class="w-24 text-xs text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input" placeholder="Live Load">
 </div>
 
 <div class="px-4 relative mt-2 text-center mx-auto">
-    <label class="font-medium text-sm text-gray-600 dark:text-gray-300" for="DL">W.L :</label>
-    <input type="text" wire:model.defer="state.WL" class="w-24 mr-1 text-xs text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input" placeholder="Wind Load">
+    <label class="font-medium text-sm text-gray-600 dark:text-gray-300" for="WL">W.L :</label>
+    <input type="text" wire:model.defer="state.WL" class="w-24 mr-2 text-xs text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input" placeholder="Wind Load">
     
-    <label class="font-medium text-sm text-gray-600 dark:text-gray-300" for="DL">Grade :</label>
+    <label class="font-medium text-sm text-gray-600 dark:text-gray-300" for="Grade">Grade :</label>
     <select wire:model.defer="state.grade" class="w-24 text-xs text-gray-600 dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-select">
         <option value="43">43</option>
         <option value="50">50</option>

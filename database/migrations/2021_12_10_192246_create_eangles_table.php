@@ -16,6 +16,7 @@ class CreateEanglesTable extends Migration
         Schema::create('eangles', function (Blueprint $table) {
             $table->id();
             $table->string('designation');
+            $table->integer('B');
             $table->integer('t');
             $table->decimal('mass', 10, 2);
             $table->decimal('r1', 10, 1);

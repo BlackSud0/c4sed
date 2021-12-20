@@ -17,16 +17,18 @@ class CalculatedEangle extends Model
     protected $fillable = [
         'slug',
         'eangle_type',
+        'connection_type',
         'designation_id',
         'user_id',
         'grade',
-        'L',
+        'D',
         'DL',
         'LL',
         'WL',
         'status',
         'company_name',
         'project_name',
+        'connected_to_both_sides',
     ];
 
     /**

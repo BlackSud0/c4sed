@@ -17,11 +17,13 @@ class DoubleEangle extends Component
     public $state = [
         'designation_id' => null, // default designation value :)
         'grade' => '43',        // default Grade value :D
-        'L' => null,
+        'D' => null,
         'DL' => null,
         'LL' => null,
         'WL' => null,
         'eangle_type' => 'Double',
+        'connection_type' => null,
+        'connected_to_both_sides' => false,
     ];
     
     /**
@@ -39,11 +41,13 @@ class DoubleEangle extends Component
         $this->state = [
             'designation_id' => null, // default designation value :)
             'grade' => '43',        // default Grade value :D
-            'L' => null,
+            'D' => null,
             'DL' => null,
             'LL' => null,
             'WL' => null,
             'eangle_type' => 'Double',
+            'connection_type' => null,
+            'connected_to_both_sides' => false,
         ];
         
         if($result->status === 'succeeded'){

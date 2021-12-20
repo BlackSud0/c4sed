@@ -26,28 +26,32 @@ class EangleCalculation implements EanglesCalculations
     {
         Validator::make($input, [
             'eangle_type' => ['required', 'string'],
+            'connection_type' => ['required', 'string'],
             'designation_id' => ['required', 'numeric', 'max:255'],
             'grade' => ['required', 'numeric'],
-            'L' => ['required', 'numeric'],
+            'D' => ['nullable', 'numeric'],
             'DL' => ['required', 'numeric'],
             'LL' => ['required', 'numeric'],
             'WL' => ['nullable', 'numeric'],
+            'connected_to_both_sides' => ['required', 'boolean'],
         ])->validate();
 
         $rand = md5(Str::random(60).time());
         $newEangle = CalculatedEangle::create([
             'slug' => Str::slug($input['eangle_type'].' '.$rand, '-'),
             'eangle_type' => $input['eangle_type'],
+            'connection_type' => $input['connection_type'],
             'designation_id' => $input['designation_id'],
             'user_id' => $user->id,
             'grade' => $input['grade'],
-            'L' => $input['L'],
+            'D' => $input['D'],
             'LL' => $input['LL'],
             'DL' => $input['DL'],
             'WL' => $input['WL'],
+            'connected_to_both_sides' => $input['connected_to_both_sides'],
         ]);
 
-        $this->calculate($newEangle);
+        // $this->calculate($newEangle);
         return $newEangle->fresh();
     }
 
@@ -61,12 +65,14 @@ class EangleCalculation implements EanglesCalculations
     public function update($user, $updatedEangle, array $input)
     {
         Validator::make($input, [
+            'connection_type' => ['required', 'string'],
             'designation_id' => ['required', 'numeric', 'max:255'],
             'grade' => ['required', 'numeric'],
             'L' => ['required', 'numeric'],
             'DL' => ['required', 'numeric'],
             'LL' => ['required', 'numeric'],
             'WL' => ['nullable', 'numeric'],
+            'connected_to_both_sides' => ['required', 'boolean'],
             'customer_name' => ['nullable', 'string','max:255'],
             'project_name' => ['nullable', 'string','max:255'],
         ])->validate();
@@ -74,6 +80,7 @@ class EangleCalculation implements EanglesCalculations
         // Authorize that the user can update the eangle.
         if ($user->id === $updatedEangle->user_id) {
             $updatedEangle->forceFill([
+                'connection_type' => $input['connection_type'],
                 'designation_id' => $input['designation_id'],
                 'user_id' => $user->id,
                 'grade' => $input['grade'],
@@ -81,6 +88,7 @@ class EangleCalculation implements EanglesCalculations
                 'LL' => $input['LL'],
                 'DL' => $input['DL'],
                 'WL' => $input['WL'],
+                'connected_to_both_sides' => $input['connected_to_both_sides'],
                 'customer_name' => $input['customer_name'],
                 'project_name' => $input['project_name'],
             ])->save();
