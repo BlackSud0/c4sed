@@ -16,7 +16,7 @@ class CalculatedEangle extends Model
      */
     protected $fillable = [
         'slug',
-        'column_type',
+        'eangle_type',
         'designation_id',
         'user_id',
         'grade',
@@ -27,7 +27,6 @@ class CalculatedEangle extends Model
         'status',
         'company_name',
         'project_name',
-        'subject',
     ];
 
     /**

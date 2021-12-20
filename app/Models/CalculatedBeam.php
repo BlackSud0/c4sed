@@ -28,7 +28,6 @@ class CalculatedBeam extends Model
         'status',
         'company_name',
         'project_name',
-        'subject',
     ];
 
     /**
