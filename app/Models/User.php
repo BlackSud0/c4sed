@@ -41,4 +41,23 @@ class User extends Authenticatable implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    /**
+     * The CalculatedBeam Model Relationships.
+     *
+     */
+    public function CalculatedBeam()
+    {
+        return $this->hasMany('App\Models\CalculatedBeam', 'user_id', 'id');
+    }
+
+    public function CalculatedColumn()
+    {
+        return $this->hasMany('App\Models\CalculatedColumn', 'user_id', 'id');
+    }
+
+    public function CalculatedEangle()
+    {
+        return $this->hasMany('App\Models\CalculatedEangle', 'user_id', 'id');
+    }
 }

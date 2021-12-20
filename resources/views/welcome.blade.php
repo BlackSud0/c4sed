@@ -86,7 +86,7 @@
                 <img class="w-10 rounded-full" src="{{asset('logo.svg')}}">
                 <span class="ml-2 font-extrabold text-xl text-blue-500">C4SED</span>
                 </a>
-                <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© <script>document.write(new Date().getFullYear())</script> C4SED —
+                <p class="text-sm text-gray-500 sm:ml-4 sm:pl-4 sm:border-l-2 sm:border-gray-200 sm:py-2 sm:mt-0 mt-4">© <script>document.write(new Date().getFullYear())</script> University Of Kassala —
                 <a href="https://twitter.com/blacksud0" class="text-gray-600 ml-1" rel="noopener noreferrer" target="_blank">@blacksudo</a>
                 </p>
                 <span class="inline-flex sm:ml-auto sm:mt-0 mt-4 justify-center sm:justify-start">
