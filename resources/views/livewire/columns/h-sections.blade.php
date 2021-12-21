@@ -3,7 +3,7 @@
 <img class="px-4" src="{{ asset('assets/img/Beam/Simply-supported.svg') }}" >
 <div class="text-center -mt-8 relative">
     <label class="font-medium text-sm text-gray-600 dark:text-gray-300" for="L">L :</label>
-    <input type="text" wire:model.defer="state.L" class="w-17 h-7 mr-5 text-xs text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input" placeholder="Span">
+    <input type="text" wire:model.defer="state.L" class="w-17 h-7 mr-5 text-xs text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input" placeholder="Length">
 </div>
 <div class="text-gray-600 p-2 text-sm text-center mx-auto text-gray-600 dark:text-gray-500">All calculations based on Metric units KN/m</div>
 <div class="px-4 relative text-center mx-auto">

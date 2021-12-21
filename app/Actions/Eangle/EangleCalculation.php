@@ -29,7 +29,7 @@ class EangleCalculation implements EanglesCalculations
             'connection_type' => ['required', 'string'],
             'designation_id' => ['required', 'numeric', 'max:255'],
             'grade' => ['required', 'numeric'],
-            'D' => ['nullable', 'numeric'],
+            'D' => $input['connection_type'] === 'bolted' ? ['required', 'numeric'] : ['nullable', 'numeric'],
             'DL' => ['required', 'numeric'],
             'LL' => ['required', 'numeric'],
             'WL' => ['nullable', 'numeric'],
@@ -51,7 +51,7 @@ class EangleCalculation implements EanglesCalculations
             'connected_to_both_sides' => $input['connected_to_both_sides'],
         ]);
 
-        // $this->calculate($newEangle);
+        $this->calculate($newEangle);
         return $newEangle->fresh();
     }
 
@@ -68,7 +68,7 @@ class EangleCalculation implements EanglesCalculations
             'connection_type' => ['required', 'string'],
             'designation_id' => ['required', 'numeric', 'max:255'],
             'grade' => ['required', 'numeric'],
-            'D' => ['required', 'numeric'],
+            'D' => $input['connection_type'] === 'bolted' ? ['required', 'numeric'] : ['nullable', 'numeric'],
             'DL' => ['required', 'numeric'],
             'LL' => ['required', 'numeric'],
             'WL' => ['nullable', 'numeric'],
@@ -96,7 +96,7 @@ class EangleCalculation implements EanglesCalculations
             throw new AuthorizationException;
         }
         
-        // $this->calculate($updatedEangle);
+        $this->calculate($updatedEangle);
         return $updatedEangle->fresh();
     }
 
@@ -129,12 +129,12 @@ class EangleCalculation implements EanglesCalculations
         // Find a stored eangle data from the Database
         // $eangle = CalculatedEangle::where('slug',$slug)->firstOrFail();
         
-        $L = $eangle->L;      // Span or Length
+        $D = $eangle->D;     // Bolt hole
         $DL = $eangle->DL;    // Dead Load
         $LL = $eangle->LL;    // Live Load
         $WL = $eangle->WL;    // Wind Load
-        $eangle_type = $eangle->eangle_type;    // "I Section" Or "H Section"
-
+        $eangle_type = $eangle->eangle_type;    // "Single" Or "Double"
+        $connection_type = $eangle->connection_type;
         /*
         * Load Combinations.
         */
@@ -146,79 +146,81 @@ class EangleCalculation implements EanglesCalculations
             $W = 1.4 * $DL;
         }
 
-        /*
-        * Calculate maximum share and moment.
-        */
-        // if ($eangle_type === "Simple") {
-        //     $Mmax = ($W * pow($L,2)) / 8;
-        //     $Vmax  = ($W * $L) / 2;
-        // }elseif ($eangle_type === "Cantilever") {
-        //     $Mmax = ($W * pow($L,2)) / 2;
-        //     $Vmax  = $W * $L;
-        // }elseif ($eangle_type === "FixedEnd") {
-        //     $Mmax = ($W * pow($L,2)) / 12;
-        //     $Vmax  = ($W * $L) / 2;
-        // }else {
-        //     abort(404);
-        // }
-
         /**
          * Section properties from Database.
          */
 
         $properties = $eangle->designation;
         $mass = $properties->mass;  // mass per metre
-        $D = $properties->h;        // Depth of section
-        $t = $properties->s;        // Thickness of Web
-        $T = $properties->t;        // Thickness of Flange
-        $bT = $properties->b2t;     // Ratios for Local Buckling - Flange
-        $dt = $properties->ds;      // Ratios for Local Buckling - Web
+        $B = $properties->B;        // Length of leg
+        $t = $properties->t;        // Thickness
+        $r1 = $properties->r1;      // Root radius
+        $r2 = $properties->r2;      // Toe radius
+        $Cx = $properties->Cx;      // Distance of centre of gravity
+        $rx = $properties->rx;      // Radius of Gyration
         $Ix = $properties->Ix;      // Second Moment of Area about X-X axis
-        $Zx = $properties->Zx;      // Elastic Modulus about X-X axis
         $Sx = $properties->Sx;      // Plastic Modulus about X-X axis
         $A  = $properties->A;       // Area of section
         /**
          * Steel properties from Database.
          */
         $E = 205;
+
         /**
          * Calculate Py and Epsilon from the Gradent.
          */
-        $grade = $eangle->Grades->where('thickness','>=' ,$T)->first();
+        $grade = $eangle->Grades->where('thickness','>=' ,$t)->first();
         $Py = $grade->Py; // Design strengths
-        $Epsilon = sqrt(275/$Py);
         
         /*
-        * Shear capacity calculation.
+        * Tension capacity calculation.
         */
-        $Av = $D * $t;          // Shear area for Rolled I,H sections
-        $Pv = 0.6 * $Py * $Av * 0.001; // Shear capacity
 
-        // Check for Shear capacity
-        if ($Pv > $Vmax) {
-            $shear_OK = true;
+        // Effective area of section
+        $B = $B - ($t/2);
+        if ($eangle_type === 'Single') {
+            if (isset($D) && $connection_type === 'bolted') {
+                $a1 = ($B - $D) * $t;
+            }elseif ($connection_type === 'welded') {
+                $a1 = $B * $t;
+            }else {
+                abort(404);
+            }
+            $a2 = $B * $t;
+            $Ae = $a1 + (((3 * $a1)/((3 * $a1) + $a2)) * $a2);
+        }elseif ($eangle_type === 'Double') {
+            if (isset($D) && $connection_type === 'bolted') {
+                $a1 = ($B - $D) * $t;
+                $a2 = ($B - $D) * $t;
+            }elseif ($connection_type === 'welded') {
+                $a1 = $B * $t;
+                $a2 = $B * $t;
+            }else {
+                abort(404);
+            }
+            $Ae = 2 * ($a1 + (((5 * $a1)/((5 * $a1) + $a2)) * $a2));
         }else {
-            return $this->failed($eangle); // Please select a new Section, the previos was failed
+            abort(404);
         }
+        ddd($Ae);
+        // $Ae = $D * $t;          
+        // $Pv = 0.6 * $Py * $Av * 0.001; // Shear capacity
 
-        if ($shear_OK && $moment_OK && $defliction_OK) {
+        // Check for Tension capacity
+        // if ($Pv > $Vmax) {
+        //     $shear_OK = true;
+        // }else {
+        //     return $this->failed($eangle); // Please select a new Section, the previos was failed
+        // }
+
+        if ($Pt_OK) {
             
             $results = new stdClass();
             $results->W = $W; // Load Combinations.
-            $results->Mmax = $Mmax; // Maximum moment
-            $results->Vmax = $Vmax; // Maximum share
-            $results->Vmax = $Vmax; // Maximum share
             $results->E = $E; // Steel properties
             $results->Py = $Py; // Design strengths
-            $results->Epsilon = $Epsilon;
-            $results->Av = $Av; // Shear area
-            $results->Pv = $Pv; // Shear capacity
-            $results->section_class = $section_class; // Section Classification.
-            $results->shear_load = $shear_load; // low or high shear
-            $results->Mc = $Mc; // Moment Capacity
-            $results->check_Mc = $check_Mc; // Moment check value
-            $results->Df = $Df; // Maximum Defliction
-            $results->check_Df = $check_Df; // Defliction check value
+            $results->Ae = $Ae; // Effective area
+            $results->Pe = $Pe; // Tension capacity
             
             // ddd($results);
 

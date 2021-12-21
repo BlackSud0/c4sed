@@ -176,15 +176,16 @@
                 <span class="ml-1">Welded splices</span>
                 </label>
             </div>
-            @if($updateEangleForm['eangle_type'] === 'Double' && isset($updateEangleForm['connected_to_both_sides']))
-            <div class="px-4 text-sm mt-2 item-center">
-                <label class="flex items-center text-gray-600 dark:text-gray-400 justify-center" @if($updateEangleForm['connected_to_both_sides']) wire:click="$set('updateEangleForm.connected_to_both_sides', false)" @else wire:click="$set('updateEangleForm.connected_to_both_sides', true)" @endif>
-                    <input type="checkbox" @if($updateEangleForm['connected_to_both_sides']) checked @endif class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
-                    <span class="ml-2 text-sm">
-                        Double angles connected to both sides of a gusset
-                    </span>
-                </label>
-            </div>
+
+            @if(isset($updateEangleForm['eangle_type']) && $updateEangleForm['eangle_type'] === 'Double')
+                <div class="px-4 text-sm mt-2 item-center">
+                    <label class="flex items-center text-gray-600 dark:text-gray-400 justify-center" @if($updateEangleForm['connected_to_both_sides']) wire:click="$set('updateEangleForm.connected_to_both_sides', false)" @else wire:click="$set('updateEangleForm.connected_to_both_sides', true)" @endif>
+                        <input type="checkbox" @if($updateEangleForm['connected_to_both_sides']) checked @endif class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
+                        <span class="ml-2 text-sm">
+                            Double angles connected to both sides of a gusset
+                        </span>
+                    </label>
+                </div>
             @endif
 
             <div class="flex text-sm mt-2">
