@@ -51,7 +51,7 @@
     <select wire:model.defer="state.designation_id" class="block w-3/4 pr-20 mt-1 text-sm text-gray-600 dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-select">
         <option>Select section</option>
         @foreach($sections as $section)
-                <option value="{{ $section->id }}">{{ $section->designation }} EA</option>
+                <option value="{{ $section->id }}">{{ $section->designation }} @if($section->H === $section->B) EA @else UEA connected through the long leg @endif</option>
         @endforeach
     </select>
     <button type="submit" class="btn w-1/4 absolute inset-y-0 right-0 px-4 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-r-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple disabled:opacity-25" wire:loading.attr="disabled">
