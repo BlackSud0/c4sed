@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Beams;
 
 use Livewire\Component;
-use Illuminate\Support\Facades\Auth;
 use App\Contracts\BeamsCalculations;
 
 class Reports extends Component

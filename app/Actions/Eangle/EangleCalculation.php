@@ -152,7 +152,7 @@ class EangleCalculation implements EanglesCalculations
         $mass = $properties->mass;  // mass per metre
         $H = $properties->H;        // The long leg
         $B = $properties->B;        // The short leg
-        $t = $properties->t;        // Thickness
+        $t = $properties->t;        // Thickness of angle
         $r1 = $properties->r1;      // Root radius
         $r2 = $properties->r2;      // Toe radius
         $Cx = $properties->Cx;      // Distance of centre of gravity
@@ -223,10 +223,12 @@ class EangleCalculation implements EanglesCalculations
             $results->W = $W; // Load Combinations.
             $results->E = $E; // Steel properties
             $results->Py = $Py; // Design strengths
+            $results->a1 = $a1;
+            $results->a2 = $a2;
             $results->Ae = $Ae; // Effective area
             $results->Pt = $Pt; // Tension capacity
             
-            ddd($results);
+            // ddd($results);
 
             return $this->succeeded($eangle,$results);
         }

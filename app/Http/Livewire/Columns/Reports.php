@@ -3,7 +3,6 @@
 namespace App\Http\Livewire\Columns;
 
 use Livewire\Component;
-use Illuminate\Support\Facades\Auth;
 use App\Contracts\ColumnsCalculations;
 
 class Reports extends Component

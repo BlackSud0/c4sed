@@ -62,10 +62,10 @@
                     <a class="flex-grow w-full text-blue-500 font-medium border-b-2 border-dashed border-gray-400 dark:border-gray-600 py-2 text-md">Column loads / Length </a>
                 </div>
                 <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">L = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->column->L}} m</span><span class="ml-auto text-gray-500 text-xs">Span / Length</span></div>
-                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">D.L = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->column->DL}} KN/m</span><span class="ml-auto text-gray-500 text-xs">Dead Load</span></div>
-                <div class="flex border-t @if(!$data->column->WL) border-b @endif border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">L.L = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->column->LL}} KN/m</span><span class="ml-auto text-gray-500 text-xs">Live Load</span></div>
+                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">D.L = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->column->DL}} KN</span><span class="ml-auto text-gray-500 text-xs">Dead Load</span></div>
+                <div class="flex border-t @if(!$data->column->WL) border-b @endif border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">L.L = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->column->LL}} KN</span><span class="ml-auto text-gray-500 text-xs">Live Load</span></div>
                 @if($data->column->WL)
-                <div class="flex border-t border-b border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">W.L = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->column->WL}} KN/m</span><span class="ml-auto text-gray-500 text-xs">Wind Load</span></div>
+                <div class="flex border-t border-b border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">W.L = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->column->WL}} KN</span><span class="ml-auto text-gray-500 text-xs">Wind Load</span></div>
                 @endif
                 <div class="flex mb-4">
                     <a class="flex-grow w-full text-blue-500 font-medium border-b-2 border-dashed border-gray-400 dark:border-gray-600 py-2 text-md">Steel material properties</a>
@@ -79,7 +79,7 @@
         </div>
 
         <div class="grid grid-cols-12 gap-6 py-2">
-            <div class="col-span-12 md:col-span-8 px-2">    
+            <div class="col-span-12 md:col-span-6 px-2">    
                 <!-- Load Combinations (Load Factors) -->
                 <div class="flex mb-2">
                     <a class="flex-grow text-blue-500 font-medium border-b-2 border-dashed border-gray-400 dark:border-gray-600 py-2 text-md">Load Combinations (Load Factors)</a>
@@ -101,7 +101,7 @@
                 
 
             </div>
-            <div class="col-span-12 md:col-span-4">
+            <div class="col-span-12 md:col-span-6">
                 @if($data->column->column_type === 'HSection')
                     <img alt="hero" src="{{ asset('assets/img/Column/universal-column.png') }}">
                 @elseif($data->column->column_type === 'ISection')

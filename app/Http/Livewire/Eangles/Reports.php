@@ -3,6 +3,7 @@
 namespace App\Http\Livewire\Eangles;
 
 use Livewire\Component;
+use App\Contracts\EanglesCalculations;
 
 class Reports extends Component
 {
