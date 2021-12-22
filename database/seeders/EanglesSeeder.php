@@ -1378,7 +1378,7 @@ class EanglesSeeder extends Seeder
             "A" => 23.2
           ],
           [
-            "id" => 510,
+            "id" => 60,
             "designation" => "150x75x15",
             "H" => 150,
             "B" => 75,
@@ -1401,7 +1401,7 @@ class EanglesSeeder extends Seeder
             "A" => 31.7
           ],
           [
-            "id" => 511,
+            "id" => 61,
             "designation" => "150x75x12",
             "H" => 150,
             "B" => 75,
@@ -1424,7 +1424,7 @@ class EanglesSeeder extends Seeder
             "A" => 25.7
           ],
           [
-            "id" => 512,
+            "id" => 62,
             "designation" => "150x75x10",
             "H" => 150,
             "B" => 75,
@@ -1447,7 +1447,7 @@ class EanglesSeeder extends Seeder
             "A" => 21.7
           ],
           [
-            "id" => 513,
+            "id" => 63,
             "designation" => "125x75x12",
             "H" => 125,
             "B" => 75,
@@ -1470,7 +1470,7 @@ class EanglesSeeder extends Seeder
             "A" => 22.7
           ],
           [
-            "id" => 514,
+            "id" => 64,
             "designation" => "125x75x10",
             "H" => 125,
             "B" => 75,
@@ -1493,7 +1493,7 @@ class EanglesSeeder extends Seeder
             "A" => 19.2
           ],
           [
-            "id" => 515,
+            "id" => 65,
             "designation" => "125x75x8",
             "H" => 125,
             "B" => 75,
@@ -1516,7 +1516,7 @@ class EanglesSeeder extends Seeder
             "A" => 15.5
           ],
           [
-            "id" => 516,
+            "id" => 66,
             "designation" => "100x75x12",
             "H" => 100,
             "B" => 75,
@@ -1539,7 +1539,7 @@ class EanglesSeeder extends Seeder
             "A" => 19.7
           ],
           [
-            "id" => 517,
+            "id" => 67,
             "designation" => "100x75x10",
             "H" => 100,
             "B" => 75,
@@ -1562,7 +1562,7 @@ class EanglesSeeder extends Seeder
             "A" => 16.6
           ],
           [
-            "id" => 518,
+            "id" => 68,
             "designation" => "100x75x8",
             "H" => 100,
             "B" => 75,
@@ -1585,7 +1585,7 @@ class EanglesSeeder extends Seeder
             "A" => 13.5
           ],
           [
-            "id" => 519,
+            "id" => 69,
             "designation" => "100x65x10",
             "H" => 100,
             "B" => 65,
@@ -1608,7 +1608,7 @@ class EanglesSeeder extends Seeder
             "A" => 15.6
           ],
           [
-            "id" => 520,
+            "id" => 70,
             "designation" => "100x65x8",
             "H" => 100,
             "B" => 65,
@@ -1631,7 +1631,7 @@ class EanglesSeeder extends Seeder
             "A" => 12.7
           ],
           [
-            "id" => 521,
+            "id" => 71,
             "designation" => "100x65x7",
             "H" => 100,
             "B" => 65,
@@ -1654,7 +1654,7 @@ class EanglesSeeder extends Seeder
             "A" => 11.2
           ],
           [
-            "id" => 522,
+            "id" => 72,
             "designation" => "80x60x8+",
             "H" => 80,
             "B" => 60,
@@ -1677,7 +1677,7 @@ class EanglesSeeder extends Seeder
             "A" => 10.6
           ],
           [
-            "id" => 523,
+            "id" => 73,
             "designation" => "80x60x7+",
             "H" => 80,
             "B" => 60,
@@ -1700,7 +1700,7 @@ class EanglesSeeder extends Seeder
             "A" => 9.35
           ],
           [
-            "id" => 524,
+            "id" => 74,
             "designation" => "80x60x6+",
             "H" => 80,
             "B" => 60,
@@ -1723,7 +1723,7 @@ class EanglesSeeder extends Seeder
             "A" => 8.08
           ],
           [
-            "id" => 525,
+            "id" => 75,
             "designation" => "75x50x8+",
             "H" => 75,
             "B" => 50,
@@ -1746,7 +1746,7 @@ class EanglesSeeder extends Seeder
             "A" => 9.44
           ],
           [
-            "id" => 526,
+            "id" => 76,
             "designation" => "75x50x6+",
             "H" => 75,
             "B" => 50,
@@ -1769,7 +1769,7 @@ class EanglesSeeder extends Seeder
             "A" => 7.22
           ],
           [
-            "id" => 527,
+            "id" => 77,
             "designation" => "65x50x8+",
             "H" => 65,
             "B" => 50,
@@ -1792,7 +1792,7 @@ class EanglesSeeder extends Seeder
             "A" => 8.61
           ],
           [
-            "id" => 528,
+            "id" => 78,
             "designation" => "65x50x6+",
             "H" => 65,
             "B" => 50,
@@ -1815,7 +1815,7 @@ class EanglesSeeder extends Seeder
             "A" => 6.59
           ],
           [
-            "id" => 529,
+            "id" => 79,
             "designation" => "65x50x5+",
             "H" => 65,
             "B" => 50,
@@ -1838,7 +1838,7 @@ class EanglesSeeder extends Seeder
             "A" => 5.55
           ],
           [
-            "id" => 530,
+            "id" => 80,
             "designation" => "60x30x6+",
             "H" => 65,
             "B" => 30,
@@ -1861,7 +1861,7 @@ class EanglesSeeder extends Seeder
             "A" => 5.09
           ],
           [
-            "id" => 531,
+            "id" => 81,
             "designation" => "60x30x5+",
             "H" => 65,
             "B" => 30,
@@ -1884,7 +1884,7 @@ class EanglesSeeder extends Seeder
             "A" => 4.3
           ],
           [
-            "id" => 532,
+            "id" => 82,
             "designation" => "40x25x4+",
             "H" => 40,
             "B" => 25,

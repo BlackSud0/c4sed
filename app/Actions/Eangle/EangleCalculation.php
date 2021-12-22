@@ -127,8 +127,6 @@ class EangleCalculation implements EanglesCalculations
     {
 
         // Find a stored eangle data from the Database
-        // $eangle = CalculatedEangle::where('slug',$slug)->firstOrFail();
-        
         $D = $eangle->D;     // Bolt hole
         $DL = $eangle->DL;    // Dead Load
         $LL = $eangle->LL;    // Live Load
@@ -152,7 +150,8 @@ class EangleCalculation implements EanglesCalculations
 
         $properties = $eangle->designation;
         $mass = $properties->mass;  // mass per metre
-        $B = $properties->B;        // Length of leg
+        $H = $properties->H;        // The long leg
+        $B = $properties->B;        // The short leg
         $t = $properties->t;        // Thickness
         $r1 = $properties->r1;      // Root radius
         $r2 = $properties->r2;      // Toe radius
@@ -177,12 +176,13 @@ class EangleCalculation implements EanglesCalculations
         */
 
         // Effective area of section
+        $H = $H - ($t/2);
         $B = $B - ($t/2);
         if ($eangle_type === 'Single') {
             if (isset($D) && $connection_type === 'bolted') {
-                $a1 = ($B - $D) * $t;
+                $a1 = ($H - $D) * $t;
             }elseif ($connection_type === 'welded') {
-                $a1 = $B * $t;
+                $a1 = $H * $t;
             }else {
                 abort(404);
             }
@@ -190,10 +190,14 @@ class EangleCalculation implements EanglesCalculations
             $Ae = $a1 + (((3 * $a1)/((3 * $a1) + $a2)) * $a2);
         }elseif ($eangle_type === 'Double') {
             if (isset($D) && $connection_type === 'bolted') {
-                $a1 = ($B - $D) * $t;
-                $a2 = ($B - $D) * $t;
+                    $a1 = ($H - $D) * $t;
+                if ($eangle->connected_to_both_sides) {
+                    $a2 = ($B - $D) * $t;
+                }else {
+                    $a2 = $B * $t;
+                }
             }elseif ($connection_type === 'welded') {
-                $a1 = $B * $t;
+                $a1 = $H * $t;
                 $a2 = $B * $t;
             }else {
                 abort(404);
@@ -202,16 +206,16 @@ class EangleCalculation implements EanglesCalculations
         }else {
             abort(404);
         }
-        ddd($Ae);
-        // $Ae = $D * $t;          
-        // $Pv = 0.6 * $Py * $Av * 0.001; // Shear capacity
+        // ddd(round($Ae));
+                  
+        $Pt = $Ae * $Py * 0.001; // Tension capacity
 
         // Check for Tension capacity
-        // if ($Pv > $Vmax) {
-        //     $shear_OK = true;
-        // }else {
-        //     return $this->failed($eangle); // Please select a new Section, the previos was failed
-        // }
+        if ($Pt > $W) {
+            $Pt_OK = true;
+        }else {
+            return $this->failed($eangle); // Please select a new Section, the previos was failed
+        }
 
         if ($Pt_OK) {
             
@@ -220,9 +224,9 @@ class EangleCalculation implements EanglesCalculations
             $results->E = $E; // Steel properties
             $results->Py = $Py; // Design strengths
             $results->Ae = $Ae; // Effective area
-            $results->Pe = $Pe; // Tension capacity
+            $results->Pt = $Pt; // Tension capacity
             
-            // ddd($results);
+            ddd($results);
 
             return $this->succeeded($eangle,$results);
         }

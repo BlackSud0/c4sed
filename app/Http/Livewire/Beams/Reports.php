@@ -25,7 +25,11 @@ class Reports extends Component
         $this->report = $calculater->calculate($beam);  
     }
 
-    
+    /**
+     * Render the component.
+     *
+     * @return \Illuminate\View\View
+     */
     public function render()
     {
         return view('livewire.beams.reports',['data' => $this->report]);

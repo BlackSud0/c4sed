@@ -24,9 +24,14 @@ class Reports extends Component
     {
         $this->report = $calculater->calculate($column);  
     }
-
+    
+    /**
+     * Render the component.
+     *
+     * @return \Illuminate\View\View
+     */
     public function render()
     {
-        return view('livewire.columns.reports',['data' => $this->report]);
+        return view('livewire.columns.reports', ['data' => $this->report]);
     }
 }
