@@ -68,7 +68,7 @@
                     <a class="flex-grow w-full text-blue-500 font-medium border-b-2 border-dashed border-gray-400 dark:border-gray-600 py-2 text-md">Angle loads / Bolt hole </a>
                 </div>
                 @if($data->eangle->D)
-                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">D = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->eangle->D}} m</span><span class="ml-auto text-gray-500 text-xs">Bolt hole</span></div>
+                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">D = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->eangle->D}} mm</span><span class="ml-auto text-gray-500 text-xs">Bolt hole</span></div>
                 @endif
                 <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">D.L = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->eangle->DL}} KN</span><span class="ml-auto text-gray-500 text-xs">Dead Load</span></div>
                 <div class="flex border-t @if(!$data->eangle->WL) border-b @endif border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">L.L = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->eangle->LL}} KN</span><span class="ml-auto text-gray-500 text-xs">Live Load</span></div>
