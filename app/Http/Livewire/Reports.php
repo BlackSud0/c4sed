@@ -6,6 +6,7 @@ use Livewire\Component;
 use Illuminate\Support\Facades\Auth;
 use App\Models\CalculatedBeam;
 use App\Models\CalculatedColumn;
+use App\Models\CalculatedEangle;
 
 class Reports extends Component
 {
@@ -16,6 +17,7 @@ class Reports extends Component
      */
     public $beamReport;
     public $columnReport;
+    public $eangleReport;
 
     /**
      * Prepare the component.
@@ -30,9 +32,12 @@ class Reports extends Component
             if($element === "beam"){
                 $beam = CalculatedBeam::where('slug',$slug)->where('user_id',$this->user->id)->where('status','succeeded')->firstOrFail();
                 $this->beamReport = $beam;
-            }elseif($element == "column"){
+            }elseif($element === "column"){
                 $column = CalculatedColumn::where('slug',$slug)->where('user_id',$this->user->id)->where('status','succeeded')->firstOrFail();
                 $this->columnReport = $column;
+            }elseif($element === "eangle"){
+                $eangle = CalculatedEangle::where('slug',$slug)->where('user_id',$this->user->id)->where('status','succeeded')->firstOrFail();
+                $this->eangleReport = $eangle;
             }
         }
     }
@@ -49,6 +54,6 @@ class Reports extends Component
 
     public function render()
     {
-        return view('livewire.reports',['beamReport' => $this->beamReport,'columnReport' => $this->columnReport])->layout('layouts.reports');;
+        return view('livewire.reports',['beamReport' => $this->beamReport,'columnReport' => $this->columnReport, 'eangleReport' => $this->eangleReport])->layout('layouts.reports');;
     }
 }

@@ -12,14 +12,20 @@
                 <div class="flex p-2">
                     <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="w-6 h-4 text-purple-600"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path><circle cx="12" cy="10" r="3"></circle></svg>
                     <span class="ml-1 text-xs">
-                        79371 - East Al-Sahafa , block
-                        36, Khartoum, Sudan, SD
+                        3450 - P.O. Box 266, 
+                        West Al-Gash river, Kassala, Sudan, SD
+                    </span>
+                </div>
+                <div class="flex px-2">
+                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-purple-600"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>   
+                    <span class="ml-1 text-xs">
+                        Phone: +249 679 64 3468
                     </span>
                 </div>
                 <div class="flex p-2">
-                    <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-purple-600"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>   
+                <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="w-4 h-4 text-purple-600"><polyline points="6 9 6 2 18 2 18 9"></polyline><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"></path><rect x="6" y="14" width="12" height="8"></rect></svg>
                     <span class="ml-1 text-xs">
-                        +249967408853
+                        Fax: +249 411 82 3501
                     </span>
                 </div>
             </div>
@@ -42,7 +48,7 @@
                 </div>
             @endif
         </div>
-        <div class="grid grid-cols-12 py-2">
+        <div class="grid grid-cols-12 gap-4">
             <div class="col-span-12 md:col-span-6 px-2">
                 <div class="flex mb-2">
                     <a class="flex-grow w-full text-blue-500 font-medium border-b-2 border-dashed border-gray-400 dark:border-gray-600 py-2 text-md">Section properties</a>
@@ -51,8 +57,8 @@
                 <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">H = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->eangle->designation->H}} mm</span><span class="ml-auto text-gray-500 text-xs">The long leg</span></div>
                 <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">B = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->eangle->designation->B}} mm</span><span class="ml-auto text-gray-500 text-xs">The short leg</span></div>
                 <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">t = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->eangle->designation->t}} mm</span><span class="ml-auto text-gray-500 text-xs">Thickness of angle</span></div>
-                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">r1 = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->eangle->designation->r1}} mm</span><span class="ml-auto text-gray-500 text-xs">Root radius</span></div>
-                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">r2 = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->eangle->designation->r2}} mm</span><span class="ml-auto text-gray-500 text-xs">Toe radius</span></div>
+                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">r1 = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->eangle->designation->r1}} mm</span><span class="ml-auto text-gray-500 text-xs">The root radius</span></div>
+                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">r2 = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->eangle->designation->r2}} mm</span><span class="ml-auto text-gray-500 text-xs">The toe radius</span></div>
                 <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">C<a style="left:1pt;position:relative;top:5pt;">x</a> = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->eangle->designation->Cx}} cm</span><span class="ml-auto text-gray-500 text-xs">Distance of center of gravity</span></div>
                 <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">C<a style="left:1pt;position:relative;top:5pt;">y</a> = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->eangle->designation->Cy}} cm</span><span class="ml-auto text-gray-500 text-xs">Distance of center of gravity</span></div>
                 <div class="flex border-t border-b mb-6 border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">A = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->eangle->designation->A}} cm<a class="text-xs" style="position:relative;top:-5pt;">2</a></span><span class="ml-auto text-gray-500 text-xs">Area of section</span></div>
@@ -79,7 +85,7 @@
             </div>
         </div>
 
-        <div class="grid grid-cols-12 gap-6 py-2">
+        <div class="grid grid-cols-12 gap-6 pb-6">
             <div class="col-span-12 md:col-span-6 px-2">    
                 <!-- Load Combinations (Load Factors) -->
                 <div class="flex mb-2">
