@@ -206,7 +206,6 @@ class EangleCalculation implements EanglesCalculations
         }else {
             abort(404);
         }
-        // ddd(round($Ae));
                   
         $Pt = $Ae * $Py * 0.001; // Tension capacity
 
@@ -227,8 +226,6 @@ class EangleCalculation implements EanglesCalculations
             $results->a2 = $a2;
             $results->Ae = $Ae; // Effective area
             $results->Pt = $Pt; // Tension capacity
-            
-            // ddd($results);
 
             return $this->succeeded($eangle,$results);
         }

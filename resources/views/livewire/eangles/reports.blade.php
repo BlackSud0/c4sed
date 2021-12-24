@@ -6,7 +6,7 @@
                 <img class="w-10 rounded-full mr-1" src="{{ asset('logo.svg') }}" alt="" loading="lazy">
                     C4SED
                 </h1>
-                <p class="text-base">A simple web-based platform, providing analysis and design of steel elements based on <span class="text-red-600">BS 5950: Part 1: 1990</span> standards</p>
+                <p class="text-base">A simplified web-based platform, providing analysis and design of steel elements based on <span class="text-red-600">BS 5950: Part 1: 1990</span> standards</p>
             </div>
             <div class="col-span-12 md:col-span-3 border-l border-r border-gray-400 dark:border-gray-600">
                 <div class="flex p-2">
@@ -53,34 +53,34 @@
                 <div class="flex mb-2">
                     <a class="flex-grow w-full text-blue-500 font-medium border-b-2 border-dashed border-gray-400 dark:border-gray-600 py-2 text-md">Section properties</a>
                 </div>
-                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">Section</span><span class="ml-auto text-gray-700 dark:text-gray-300">{{$data->eangle->designation->designation}} {{$data->eangle->designation->H === $data->eangle->designation->B ? 'EA' : 'UEA'}}</span><span class="ml-auto text-gray-500 text-xs">{{$data->eangle->eangle_type}} {{$data->eangle->designation->H === $data->eangle->designation->B ? 'Equal' : 'Unequal'}} Angle</span></div>
-                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">H = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->eangle->designation->H}} mm</span><span class="ml-auto text-gray-500 text-xs">The long leg</span></div>
-                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">B = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->eangle->designation->B}} mm</span><span class="ml-auto text-gray-500 text-xs">The short leg</span></div>
-                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">t = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->eangle->designation->t}} mm</span><span class="ml-auto text-gray-500 text-xs">Thickness of angle</span></div>
-                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">r1 = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->eangle->designation->r1}} mm</span><span class="ml-auto text-gray-500 text-xs">The root radius</span></div>
-                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">r2 = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->eangle->designation->r2}} mm</span><span class="ml-auto text-gray-500 text-xs">The toe radius</span></div>
-                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">C<a style="left:1pt;position:relative;top:5pt;">x</a> = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->eangle->designation->Cx}} cm</span><span class="ml-auto text-gray-500 text-xs">Distance of center of gravity</span></div>
-                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">C<a style="left:1pt;position:relative;top:5pt;">y</a> = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->eangle->designation->Cy}} cm</span><span class="ml-auto text-gray-500 text-xs">Distance of center of gravity</span></div>
-                <div class="flex border-t border-b mb-6 border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">A = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->eangle->designation->A}} cm<a class="text-xs" style="position:relative;top:-5pt;">2</a></span><span class="ml-auto text-gray-500 text-xs">Area of section</span></div>
+                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">Section</span><span class="ml-auto text-gray-700 dark:text-gray-300">{{$data->eangle->designation->designation}} {{$data->eangle->designation->H === $data->eangle->designation->B ? 'EA' : 'UEA'}}</span><span class="ml-auto text-gray-500 text-sm">{{$data->eangle->eangle_type}} {{$data->eangle->designation->H === $data->eangle->designation->B ? 'Equal' : 'Unequal'}} Angle</span></div>
+                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">H = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-sm">{{$data->eangle->designation->H}} mm</span><span class="ml-auto text-gray-500 text-sm">The long leg</span></div>
+                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">B = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-sm">{{$data->eangle->designation->B}} mm</span><span class="ml-auto text-gray-500 text-sm">The short leg</span></div>
+                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">t = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-sm">{{$data->eangle->designation->t}} mm</span><span class="ml-auto text-gray-500 text-sm">Thickness of angle</span></div>
+                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">r1 = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-sm">{{$data->eangle->designation->r1}} mm</span><span class="ml-auto text-gray-500 text-sm">The root radius</span></div>
+                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">r2 = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-sm">{{$data->eangle->designation->r2}} mm</span><span class="ml-auto text-gray-500 text-sm">The toe radius</span></div>
+                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">C<a style="left:1pt;position:relative;top:5pt;">x</a> = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-sm">{{$data->eangle->designation->Cx}} cm</span><span class="ml-auto text-gray-500 text-sm">Distance of center of gravity</span></div>
+                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">C<a style="left:1pt;position:relative;top:5pt;">y</a> = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-sm">{{$data->eangle->designation->Cy}} cm</span><span class="ml-auto text-gray-500 text-sm">Distance of center of gravity</span></div>
+                <div class="flex border-t border-b mb-6 border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">A = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-sm">{{$data->eangle->designation->A}} cm<a class="text-sm" style="position:relative;top:-5pt;">2</a></span><span class="ml-auto text-gray-500 text-sm">Area of section</span></div>
             </div>
             <div class="col-span-12 md:col-span-6 px-2">
                 <div class="flex mb-4">
                     <a class="flex-grow w-full text-blue-500 font-medium border-b-2 border-dashed border-gray-400 dark:border-gray-600 py-2 text-md">Angle loads / Bolt hole </a>
                 </div>
                 @if($data->eangle->D)
-                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">D = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->eangle->D}} mm</span><span class="ml-auto text-gray-500 text-xs">Bolt hole</span></div>
+                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">D = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-sm">{{$data->eangle->D}} mm</span><span class="ml-auto text-gray-500 text-sm">Bolt hole</span></div>
                 @endif
-                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">D.L = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->eangle->DL}} KN</span><span class="ml-auto text-gray-500 text-xs">Dead Load</span></div>
-                <div class="flex border-t @if(!$data->eangle->WL) border-b @endif border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">L.L = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->eangle->LL}} KN</span><span class="ml-auto text-gray-500 text-xs">Live Load</span></div>
+                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">D.L = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-sm">{{$data->eangle->DL}} KN</span><span class="ml-auto text-gray-500 text-sm">Dead Load</span></div>
+                <div class="flex border-t @if(!$data->eangle->WL) border-b @endif border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">L.L = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-sm">{{$data->eangle->LL}} KN</span><span class="ml-auto text-gray-500 text-sm">Live Load</span></div>
                 @if($data->eangle->WL)
-                <div class="flex border-t border-b border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">W.L = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->eangle->WL}} KN</span><span class="ml-auto text-gray-500 text-xs">Wind Load</span></div>
+                <div class="flex border-t border-b border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">W.L = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-sm">{{$data->eangle->WL}} KN</span><span class="ml-auto text-gray-500 text-sm">Wind Load</span></div>
                 @endif
                 <div class="flex mb-4">
                     <a class="flex-grow w-full text-blue-500 font-medium border-b-2 border-dashed border-gray-400 dark:border-gray-600 py-2 text-md">Steel material properties</a>
                 </div>
-                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">Grade = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->eangle->grade}}</span><span class="ml-auto text-gray-500 text-xs">Steel grade</span></div>
-                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">P<a style="left:-1pt;position:relative;top:4pt;">y</a> = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->Py}} N/mm<a class="text-xs" style="position:relative;top:-5pt;">2</a></span><span class="ml-auto text-gray-500 text-xs">Design strength</span></div>
-                <div class="flex border-t border-b border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">E = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-xs">{{$data->E}} KN/mm<a class="text-xs" style="position:relative;top:-5pt;">2</a></span><span class="ml-auto text-gray-500 text-xs">Modulus of elasticity</span></div>
+                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">Grade = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-sm">{{$data->eangle->grade}}</span><span class="ml-auto text-gray-500 text-sm">Steel grade</span></div>
+                <div class="flex border-t border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">P<a style="left:-1pt;position:relative;top:4pt;">y</a> = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-sm">{{$data->Py}} N/mm<a class="text-sm" style="position:relative;top:-5pt;">2</a></span><span class="ml-auto text-gray-500 text-sm">Design strength</span></div>
+                <div class="flex border-t border-b border-dashed border-gray-400 dark:border-gray-600 py-1 text-sm"><span class="text-gray-900 dark:text-gray-300">E = </span><span class="mx-auto text-gray-600 dark:text-gray-400 text-sm">{{$data->E}} KN/mm<a class="text-sm" style="position:relative;top:-5pt;">2</a></span><span class="ml-auto text-gray-500 text-sm">Modulus of elasticity</span></div>
 
             </div>
         </div>
@@ -97,18 +97,22 @@
                 <div class="flex mb-2">
                     <a class="flex-grow text-blue-500 font-medium border-b-2 border-dashed border-gray-400 dark:border-gray-600 py-2 text-md">Effective area of section</a>
                 </div>
-                <p class="mb-2 text-sm flex leading-relaxed text-gray-900 dark:text-gray-300">a<a class="text-xs mr-1" style="left:1pt;position:relative;top:4pt;">1</a> = {{round($data->a1, 2)}} mm , a<a class="text-xs mr-1" style="left:1pt;position:relative;top:4pt;">2</a> = {{round($data->a1, 2)}} mm</p>
-                <p class="mb-2 text-sm flex leading-relaxed text-gray-900 dark:text-gray-300">=> A<a class="text-xs mr-1" style="position:relative;top:4pt;">e</a> = {{round($data->Ae, 2)}} mm<a class="text-xs" style="position:relative;top:-3pt;">2</a></p>
+                <p class="mb-2 text-sm flex leading-relaxed text-gray-900 dark:text-gray-300">a<a class="text-sm mr-1" style="left:1pt;position:relative;top:4pt;">1</a> = {{round($data->a1, 2)}} mm , a<a class="text-sm mr-1" style="left:1pt;position:relative;top:4pt;">2</a> = {{round($data->a2, 2)}} mm</p>
+                <p class="mb-2 text-sm flex leading-relaxed text-gray-900 dark:text-gray-300">=> A<a class="text-sm mr-1" style="position:relative;top:4pt;">e</a> = {{round($data->Ae, 2)}} mm<a class="text-sm" style="position:relative;top:-3pt;">2</a></p>
                 <!-- Tension capacity Check-->
                 <div class="flex mb-2">
                     <a class="flex-grow text-blue-500 font-medium border-b-2 border-dashed border-gray-400 dark:border-gray-600 py-2 text-md">Tension capacity</a>
                 </div>
-                <p class="mb-2 text-sm flex leading-relaxed text-gray-900 dark:text-gray-300">P<a class="text-xs mr-1" style="position:relative;top:4pt;">t</a> = {{round($data->Pt, 2)}} KN</p>
-                <p class="mb-2 text-sm flex leading-relaxed text-gray-900 dark:text-gray-300">P<a class="text-xs mr-1" style="position:relative;top:4pt;">t</a> > W => {{round($data->Pt, 2)}} > {{round($data->W, 2)}} <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-green-500 w-6 h-5 ml-3 mr-1" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path><path d="M22 4L12 14.01l-3-3"></path></svg><span class="title-font text-green-500 font-bold">OK</span></p>
+                <p class="mb-2 text-sm flex leading-relaxed text-gray-900 dark:text-gray-300">P<a class="text-sm mr-1" style="position:relative;top:4pt;">t</a> = {{round($data->Pt, 2)}} KN</p>
+                <p class="mb-2 text-sm flex leading-relaxed text-gray-900 dark:text-gray-300">P<a class="text-sm mr-1" style="position:relative;top:4pt;">t</a> > W => {{round($data->Pt, 2)}} > {{round($data->W, 2)}} <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="3" class="text-green-500 w-6 h-5 ml-3 mr-1" viewBox="0 0 24 24"><path d="M22 11.08V12a10 10 0 11-5.93-9.14"></path><path d="M22 4L12 14.01l-3-3"></path></svg><span class="title-font text-green-500 font-bold">OK</span></p>
 
             </div>
             <div class="col-span-12 md:col-span-6">
+                @if($data->eangle->designation->H === $data->eangle->designation->B)
                 <img alt="hero" src="{{ asset('assets/img/Angle/equal-angles.png') }}">
+                @else
+                <img alt="hero" src="{{ asset('assets/img/Angle/unequal-angles.png') }}">
+                @endif
             </div>
         </div>
 

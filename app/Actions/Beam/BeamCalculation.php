@@ -341,8 +341,6 @@ class BeamCalculation implements BeamsCalculations
             $results->check_Mc = $check_Mc; // Moment check value
             $results->Df = $Df; // Maximum Defliction
             $results->check_Df = $check_Df; // Defliction check value
-            
-            // ddd($results);
 
             return $this->succeeded($beam,$results);
         }
