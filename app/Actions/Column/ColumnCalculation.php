@@ -195,7 +195,7 @@ class ColumnCalculation implements ColumnsCalculations
                 $flange_class = "semi-compact";
             }else {
                 $flange_class = "slender";
-                $factor = 21 / (($bT/$Epsilon) - 7); // Strength reduction factor for slender
+                $factor = 31 / (($bT/$Epsilon) - 8); // Strength reduction factor for slender
             }
         }else {
             abort(404);

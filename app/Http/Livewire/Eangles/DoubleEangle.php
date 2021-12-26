@@ -14,6 +14,7 @@ class DoubleEangle extends Component
      *
      * @var array
      */
+    public $HideBoltHole = false;
     public $state = [
         'designation_id' => null, // default designation value :)
         'grade' => '43',        // default Grade value :D

@@ -23,11 +23,11 @@
                 <!-- Avatar with inset shadow -->
                 <div class="relative hidden zoom-in w-14 h-12 mr-2 rounded-md md:block">
                     @if($beam->beam_type === 'Simple')
-                    <img class="w-full h-full rounded-md" src="{{ asset('assets/img/Beam/Simply-supported.svg') }}" alt="" loading="simply"/>
+                    <img class="w-full h-full" src="{{ asset('assets/img/Beam/Simply-supported.svg') }}" alt="" loading="simply"/>
                     @elseif($beam->beam_type === 'Cantilever')
-                    <img class="w-full h-full rounded-md" src="{{ asset('assets/img/Beam/Cantilever.svg') }}" alt="" loading="cantilever"/>
+                    <img class="w-full h-full" src="{{ asset('assets/img/Beam/Cantilever.svg') }}" alt="" loading="cantilever"/>
                     @elseif($beam->beam_type === 'FixedEnd')
-                    <img class="w-full h-full rounded-md" src="{{ asset('assets/img/Beam/Fixed-End.svg') }}" alt="" loading="fixedend"/>
+                    <img class="w-full h-full" src="{{ asset('assets/img/Beam/Fixed-End.svg') }}" alt="" loading="fixedend"/>
                     @endif
                     
                     <div class="absolute inset-0" aria-hidden="true"></div>
@@ -57,15 +57,15 @@
             </td>
             <td class="px-2 py-3 text-xs text-center">
             @if($beam->status === null)
-            <span class="px-2 py-2 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-md dark:text-white dark:bg-orange-600">
+            <span class="px-2 py-2 font-semibold leading-tight text-orange-700 bg-orange-100 rounded dark:text-white dark:bg-orange-600">
                 Pending
             </span>
             @elseif($beam->status === 'succeeded')
-            <span class="px-2 py-2 font-semibold leading-tight text-green-700 bg-green-100 rounded-md dark:bg-green-700 dark:text-green-100">
+            <span class="px-2 py-2 font-semibold leading-tight text-green-700 bg-green-100 rounded dark:bg-green-700 dark:text-green-100">
                 Succeeded
             </span>
             @elseif($beam->status === 'failed')
-            <span class="px-2 py-2 font-semibold leading-tight text-red-700 bg-red-100 rounded-md dark:text-red-100 dark:bg-red-700">
+            <span class="px-2 py-2 font-semibold leading-tight text-red-700 bg-red-100 rounded dark:text-red-100 dark:bg-red-700">
                 Failed
             </span>
             @endif
@@ -122,29 +122,31 @@
 <x-dialog-modal wire:model="confirmingBeamUpdate">
     <x-slot name="title">
         <div class="text-right">
-            <x-secondary-button class="btn-outline-hard" for="fa fa-window-close" wire:click="$toggle('confirmingBeamUpdate')" wire:loading.attr="disabled">
-                {{ __('Cancel') }}
+            <x-secondary-button class="text-center" wire:click="$toggle('confirmingBeamUpdate')" wire:loading.attr="disabled">
+                <svg class="w-5 h-4 pr-1 item-center" fill="currentColor" viewBox="0 0 20 20" role="img" aria-hidden="true">
+                    <path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                </svg>
             </x-secondary-button>
         </div>
     </x-slot>
 
     <x-slot name="content">
-        <form class="form form-horizontal" wire:submit.prevent="updateBeam">
+        <form class="form form-horizontal -mt-10" wire:submit.prevent="updateBeam">
             @if(isset($updateBeamForm['beam_type']))
                 @if($updateBeamForm['beam_type'] === 'Simple')
                 <div class="font-medium text-center text-lg text-gray-800 dark:text-gray-200">Simply supported</div>
                 <div class="item-center">
-                    <img class="w-4/5 mx-auto " src="{{ asset('assets/img/Beam/Simply-supported.svg') }}" alt="">
+                    <img class="w-4/5 mx-auto" src="{{ asset('assets/img/Beam/Simply-supported.svg') }}" alt="">
                 </div>
                 @elseif($updateBeamForm['beam_type'] === 'Cantilever')
                 <div class="font-medium text-center text-lg text-gray-800 dark:text-gray-200">Cantilever</div>
                 <div class="item-center">
-                    <img class="w-4/5 mx-auto " src="{{ asset('assets/img/Beam/Cantilever.svg') }}" alt="">
+                    <img class="w-4/5 mx-auto" src="{{ asset('assets/img/Beam/Cantilever.svg') }}" alt="">
                 </div>
                 @elseif($updateBeamForm['beam_type'] === 'FixedEnd')
                 <div class="font-medium text-center text-lg text-gray-800 dark:text-gray-200">Fixed at both End</div>
                 <div class="item-center">
-                    <img class="w-4/5 mx-auto " src="{{ asset('assets/img/Beam/Fixed-End.svg') }}" alt="">
+                    <img class="w-4/5 mx-auto" src="{{ asset('assets/img/Beam/Fixed-End.svg') }}" alt="">
                 </div>
                 @endif
             @endif
@@ -166,7 +168,7 @@
                 <input type="text" wire:model.defer="updateBeamForm.WL" class="w-24 mr-1 text-xs text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input" placeholder="Wind Load">
                 
                 <label class="font-medium text-sm text-gray-600 dark:text-gray-300" for="Grade">Grade :</label>
-                <select wire:model.defer="updateBeamForm.grade" class="w-24 text-xs text-gray-600 dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-select">
+                <select wire:model.defer="updateBeamForm.grade" class="w-24 text-xs text-gray-600 dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-select rounded">
                     <option value="43">43</option>
                     <option value="50">50</option>
                     <option value="55">55</option>
@@ -189,13 +191,13 @@
             </div>
             @if($sections)
             <div class="relative mt-2 text-gray-500 focus-within:text-purple-600">
-                <select wire:model.defer="updateBeamForm.designation_id" class="block w-3/4 pr-20 mt-1 text-sm text-gray-600 dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-select">
+                <select wire:model.defer="updateBeamForm.designation_id" class="block w-3/4 pr-20 mt-1 text-sm text-gray-600 dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-select rounded-l">
                     <option value="0">Select section</option>
                     @foreach($sections as $section)
                             <option value="{{ $section->id }}">{{ $section->designation }} UB</option>
                     @endforeach
                 </select>
-                <button type="submit" class="btn absolute inset-y-0 right-0 w-1/4 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-r-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple disabled:opacity-25" wire:loading.attr="disabled">
+                <button type="submit" class="analyze absolute inset-y-0 right-0 w-1/4 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-r-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple disabled:opacity-25" wire:loading.attr="disabled">
                 Reanalyze
                 </button>
             </div>

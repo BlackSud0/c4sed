@@ -17,6 +17,7 @@ class Manager extends Component
      *
      * @var array
      */
+    public $HideBoltHole = false;
     protected $listeners = [
         'refresh-manager' => '$refresh',
     ];

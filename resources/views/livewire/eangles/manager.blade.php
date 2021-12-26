@@ -23,9 +23,9 @@
                 <!-- Avatar with inset shadow -->
                 <div class="relative hidden zoom-in w-14 h-12 mr-2 rounded-md md:block">
                     @if($eangle->eangle_type === 'Single')
-                    <img class="w-full h-full rounded-md" src="{{ asset('assets/img/Beam/Simply-supported.svg') }}" alt="" loading="single"/>
+                    <img class="w-full h-full" src="{{ asset('assets/img/Angle/Single-angle.svg') }}" alt="" loading="single"/>
                     @elseif($eangle->eangle_type === 'Double')
-                    <img class="w-full h-full rounded-md" src="{{ asset('assets/img/Beam/Cantilever.svg') }}" alt="" loading="double"/>
+                    <img class="w-full h-full" src="{{ asset('assets/img/Angle/Double-angle.svg') }}" alt="" loading="double"/>
                     @endif
                     
                     <div class="absolute inset-0" aria-hidden="true"></div>
@@ -55,15 +55,15 @@
             </td>
             <td class="px-2 py-3 text-xs text-center">
             @if($eangle->status === null)
-            <span class="px-2 py-2 font-semibold leading-tight text-orange-700 bg-orange-100 rounded-md dark:text-white dark:bg-orange-600">
+            <span class="px-2 py-2 font-semibold leading-tight text-orange-700 bg-orange-100 rounded dark:text-white dark:bg-orange-600">
                 Pending
             </span>
             @elseif($eangle->status === 'succeeded')
-            <span class="px-2 py-2 font-semibold leading-tight text-green-700 bg-green-100 rounded-md dark:bg-green-700 dark:text-green-100">
+            <span class="px-2 py-2 font-semibold leading-tight text-green-700 bg-green-100 rounded dark:bg-green-700 dark:text-green-100">
                 Succeeded
             </span>
             @elseif($eangle->status === 'failed')
-            <span class="px-2 py-2 font-semibold leading-tight text-red-700 bg-red-100 rounded-md dark:text-red-100 dark:bg-red-700">
+            <span class="px-2 py-2 font-semibold leading-tight text-red-700 bg-red-100 rounded dark:text-red-100 dark:bg-red-700">
                 Failed
             </span>
             @endif
@@ -116,130 +116,133 @@
     </span>
     </div>
 
-<!-- Update Eangle informations Modal -->
-<x-dialog-modal wire:model="confirmingEangleUpdate">
-    <x-slot name="title">
-        <div class="text-right">
-            <x-secondary-button class="btn-outline-hard" for="fa fa-window-close" wire:click="$toggle('confirmingEangleUpdate')" wire:loading.attr="disabled">
-                {{ __('Cancel') }}
-            </x-secondary-button>
-        </div>
-    </x-slot>
+    <!-- Update Eangle informations Modal -->
+    <x-dialog-modal wire:model="confirmingEangleUpdate">
+        <x-slot name="title">
+            <div class="text-right">
+                <x-secondary-button class="text-cetner" wire:click="$toggle('confirmingEangleUpdate')" wire:loading.attr="disabled">
+                    <svg class="w-5 h-4 pr-1 item-center" fill="currentColor" viewBox="0 0 20 20" role="img" aria-hidden="true">
+                        <path d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z" clip-rule="evenodd" fill-rule="evenodd"></path>
+                    </svg>
+                </x-secondary-button>
+            </div>
+        </x-slot>
 
-    <x-slot name="content">
-        <form class="form form-horizontal" wire:submit.prevent="updateEangle">
-            @if(isset($updateEangleForm['eangle_type']))
-                @if($updateEangleForm['eangle_type'] === 'Single')
-                <div class="font-medium text-center text-lg text-gray-800 dark:text-gray-200">Single Angle</div>
-                <div class="item-center">
-                    <img class="w-4/5 mx-auto " src="{{ asset('assets/img/Beam/Simply-supported.svg') }}" alt="single">
-                </div>
-                @elseif($updateEangleForm['eangle_type'] === 'Double')
-                <div class="font-medium text-center text-lg text-gray-800 dark:text-gray-200">Double Angles</div>
-                <div class="item-center">
-                    <img class="w-4/5 mx-auto " src="{{ asset('assets/img/Beam/Cantilever.svg') }}" alt="double">
-                </div>
+        <x-slot name="content">
+            <form class="form form-horizontal -mt-10" wire:submit.prevent="updateEangle">
+                @if(isset($updateEangleForm['eangle_type']))
+                    @if($updateEangleForm['eangle_type'] === 'Single')
+                    <div class="font-medium text-center text-lg text-gray-800 dark:text-gray-200">Single Angle</div>
+                    <div class="item-center">
+                        <img class="w-2/3 mx-auto" src="{{ asset('assets/img/Angle/Single-angle.svg') }}" alt="single">
+                    </div>
+                    @elseif($updateEangleForm['eangle_type'] === 'Double')
+                    <div class="font-medium text-center text-lg text-gray-800 dark:text-gray-200">Double Angles</div>
+                    <div class="item-center">
+                        <img class="w-2/3 mx-auto" src="{{ asset('assets/img/Angle/Double-angle.svg') }}" alt="double">
+                    </div>
+                    @endif
                 @endif
-            @endif
-            <div class="text-center -mt-8 relative">
-                <label class="font-medium text-sm text-gray-600 dark:text-gray-300" for="D">D :</label>
-                <input type="text" wire:model.defer="updateEangleForm.D" class="w-20 h-7 text-xs text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input" placeholder="Bolt hole">
-                <label class="text-sm text-gray-600 dark:text-gray-500" for="D">mm</label>
-            </div>
-            <div class="text-gray-600 p-2 text-sm text-center mx-auto text-gray-600 dark:text-gray-500">All calculations based on Metric units KN/m</div>
-            <div class="px-4 text-center relative">
-                <label class="font-medium text-sm text-gray-600 dark:text-gray-300" for="DL">D.L :</label>
-                <input type="text" wire:model.defer="updateEangleForm.DL" class="w-24 mr-5 text-xs text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input" placeholder="Dead Load">
-                
-                <label class="font-medium ml-2 text-sm text-gray-600 dark:text-gray-300" for="LL">L.L :</label>
-                <input type="text" wire:model.defer="updateEangleForm.LL" class="w-24 text-xs text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input" placeholder="Live Load">
-            </div>
+                <div class="text-center relative @if($HideBoltHole) disabled @elseif(isset($updateEangleForm['connection_type']) && $updateEangleForm['connection_type'] === 'welded') disabled @endif">
+                    <label class="font-medium text-sm text-gray-600 dark:text-gray-300" for="D">D :</label>
+                    <input type="text" @if($HideBoltHole) readonly @elseif(isset($updateEangleForm['connection_type']) && $updateEangleForm['connection_type'] === 'welded') readonly @else wire:model.defer="updateEangleForm.D" @endif class="w-20 h-7 text-xs text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input" placeholder="Bolt hole">
+                    <label class="text-sm text-gray-600 dark:text-gray-500" for="D">mm</label>
+                </div>
+                <div class="text-gray-600 p-2 text-sm text-center mx-auto text-gray-600 dark:text-gray-500">All calculations based on Metric units KN/m</div>
+                <div class="px-4 text-center relative">
+                    <label class="font-medium text-sm text-gray-600 dark:text-gray-300" for="DL">D.L :</label>
+                    <input type="text" wire:model.defer="updateEangleForm.DL" class="w-24 mr-5 text-xs text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input" placeholder="Dead Load">
+                    
+                    <label class="font-medium ml-2 text-sm text-gray-600 dark:text-gray-300" for="LL">L.L :</label>
+                    <input type="text" wire:model.defer="updateEangleForm.LL" class="w-24 text-xs text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input" placeholder="Live Load">
+                </div>
 
-            <div class="px-4 text-center relative mt-2">
-                <label class="font-medium text-sm text-gray-600 dark:text-gray-300" for="WL">W.L :</label>
-                <input type="text" wire:model.defer="updateEangleForm.WL" class="w-24 mr-1 text-xs text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input" placeholder="Wind Load">
+                <div class="px-4 text-center relative mt-2">
+                    <label class="font-medium text-sm text-gray-600 dark:text-gray-300" for="WL">W.L :</label>
+                    <input type="text" wire:model.defer="updateEangleForm.WL" class="w-24 mr-1 text-xs text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input" placeholder="Wind Load">
+                    
+                    <label class="font-medium text-sm text-gray-600 dark:text-gray-300" for="Grade">Grade :</label>
+                    <select wire:model.defer="updateEangleForm.grade" class="w-24 text-xs text-gray-600 dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-select rounded">
+                        <option value="43">43</option>
+                        <option value="50">50</option>
+                        <option value="55">55</option>
+                    </select>
+                </div>
                 
-                <label class="font-medium text-sm text-gray-600 dark:text-gray-300" for="Grade">Grade :</label>
-                <select wire:model.defer="updateEangleForm.grade" class="w-24 text-xs text-gray-600 dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-select">
-                    <option value="43">43</option>
-                    <option value="50">50</option>
-                    <option value="55">55</option>
-                </select>
-            </div>
-            <div class="text-center mx-auto mt-2">
-                <label class="inline-flex items-center text-gray-600 dark:text-gray-400">
-                <input type="radio" wire:model.defer="updateEangleForm.connection_type" class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray" name="connection_type" value="bolted">
-                <span class="ml-1">Bolted splices</span>
-                </label>
-                <label class="inline-flex items-center ml-6 text-gray-600 dark:text-gray-400">
-                <input type="radio" wire:model.defer="updateEangleForm.connection_type" class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray" name="connection_type" value="welded">
-                <span class="ml-1">Welded splices</span>
-                </label>
-            </div>
-
-            @if(isset($updateEangleForm['eangle_type']) && $updateEangleForm['eangle_type'] === 'Double')
-                <div class="px-4 text-sm mt-2 item-center">
-                    <label class="flex items-center text-gray-600 dark:text-gray-400 justify-center" @if($updateEangleForm['connected_to_both_sides']) wire:click="$set('updateEangleForm.connected_to_both_sides', false)" @else wire:click="$set('updateEangleForm.connected_to_both_sides', true)" @endif>
-                        <input type="checkbox" @if($updateEangleForm['connected_to_both_sides']) checked @endif class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
-                        <span class="ml-2 text-sm">
-                            Double angles connected to both sides of a gusset
-                        </span>
+                <div class="text-center mx-auto mt-2">
+                    <label wire:click="$set('HideBoltHole', false)" class="inline-flex items-center text-gray-600 dark:text-gray-400">
+                    <input type="radio" wire:model.defer="updateEangleForm.connection_type" class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray" name="connection_type" value="bolted">
+                    <span class="ml-1">Bolted splices</span>
+                    </label>
+                    <label wire:click="$set('HideBoltHole', true)" class="inline-flex items-center ml-6 text-gray-600 dark:text-gray-400">
+                    <input type="radio" wire:model.defer="updateEangleForm.connection_type" class="text-purple-600 form-radio focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray" name="connection_type" value="welded">
+                    <span class="ml-1">Welded splices</span>
                     </label>
                 </div>
-            @endif
 
-            <div class="flex text-sm mt-2">
-                <input type="text" wire:model.defer="updateEangleForm.project_name" placeholder="Project Name" class="w-1/2 h-17 mr-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input">
-                <input type="text" wire:model.defer="updateEangleForm.customer_name" placeholder="Customer Name" class="w-1/2 h-17 ml-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input">
-            </div>
-            @if($sections)
-            <div class="relative mt-2 text-gray-500 focus-within:text-purple-600">
-                <select wire:model.defer="updateEangleForm.designation_id" class="block w-3/4 pr-20 mt-1 text-sm text-gray-600 dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-select">
-                    <option value="0">Select section</option>
-                    @foreach($sections as $section)
-                            <option value="{{ $section->id }}">{{ $section->designation }} @if($section->H === $section->B) EA @else UEA connected through the long leg @endif</option>
-                    @endforeach
-                </select>
-                <button type="submit" class="btn absolute inset-y-0 right-0 w-1/4 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-r-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple disabled:opacity-25" wire:loading.attr="disabled">
-                Reanalyze
-                </button>
-            </div>
-            @endif
+                @if(isset($updateEangleForm['eangle_type']) && $updateEangleForm['eangle_type'] === 'Double')
+                    <div class="px-4 text-sm mt-2 item-center">
+                        <label class="flex items-center text-gray-600 dark:text-gray-400 justify-center" @if($updateEangleForm['connected_to_both_sides']) wire:click="$set('updateEangleForm.connected_to_both_sides', false)" @else wire:click="$set('updateEangleForm.connected_to_both_sides', true)" @endif>
+                            <input type="checkbox" @if($updateEangleForm['connected_to_both_sides']) checked @endif class="text-purple-600 form-checkbox focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray">
+                            <span class="ml-2 text-sm">
+                                Double angles connected to both sides of a gusset
+                            </span>
+                        </label>
+                    </div>
+                @endif
 
-            @if ($errors->any())
-                <div>
-                    <div class="font-medium text-red-600">{{ __('Whoops! Something went wrong.') }}</div>
-                    <ul class="mt-3 list-disc list-inside text-sm text-red-600">
-                        @foreach ($errors->all() as $error)
-                            <li>{{ $error }}</li>
-                        @endforeach
-                    </ul>
+                <div class="flex text-sm mt-2">
+                    <input type="text" wire:model.defer="updateEangleForm.project_name" placeholder="Project Name" class="w-1/2 h-17 mr-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input">
+                    <input type="text" wire:model.defer="updateEangleForm.customer_name" placeholder="Customer Name" class="w-1/2 h-17 ml-1 text-sm text-black dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-input">
                 </div>
-            @endif
-        </form>
-    </x-slot>
-</x-dialog-modal>
+                @if($sections)
+                <div class="relative mt-2 text-gray-500 focus-within:text-purple-600">
+                    <select wire:model.defer="updateEangleForm.designation_id" class="block w-3/4 pr-20 mt-1 text-sm text-gray-600 dark:text-gray-300 dark:border-gray-600 dark:bg-gray-700 focus:border-purple-400 focus:outline-none focus:shadow-outline-purple dark:focus:shadow-outline-gray form-select rounded-l">
+                        <option value="0">Select section</option>
+                        @foreach($sections as $section)
+                                <option value="{{ $section->id }}">{{ $section->designation }} @if($section->H === $section->B) EA @else UEA connected through the long leg @endif</option>
+                        @endforeach
+                    </select>
+                    <button type="submit" class="analyze absolute inset-y-0 right-0 w-1/4 text-sm font-medium leading-5 text-white transition-colors duration-150 bg-purple-600 border border-transparent rounded-r-md active:bg-purple-600 hover:bg-purple-700 focus:outline-none focus:shadow-outline-purple disabled:opacity-25" wire:loading.attr="disabled">
+                    Reanalyze
+                    </button>
+                </div>
+                @endif
 
-<!-- Remove Eangle Confirmation Modal -->
-<x-confirmation-modal wire:model="confirmingEangleRemoval">
-    <x-slot name="title">
-        {{ __('Remove Analyzed Angle') }}
-    </x-slot>
+                @if ($errors->any())
+                    <div>
+                        <div class="font-medium text-red-600">{{ __('Whoops! Something went wrong.') }}</div>
+                        <ul class="mt-3 list-disc list-inside text-sm text-red-600">
+                            @foreach ($errors->all() as $error)
+                                <li>{{ $error }}</li>
+                            @endforeach
+                        </ul>
+                    </div>
+                @endif
+            </form>
+        </x-slot>
+    </x-dialog-modal>
 
-    <x-slot name="content">
-        {{ __('Are you sure you would like to remove this angle from the analyzed angles?') }}
-    </x-slot>
+    <!-- Remove Eangle Confirmation Modal -->
+    <x-confirmation-modal wire:model="confirmingEangleRemoval">
+        <x-slot name="title">
+            {{ __('Remove Analyzed Angle') }}
+        </x-slot>
 
-    <x-slot name="footer">
-        <x-secondary-button class="btn-outline-hard" for="fa fa-window-close" wire:click="$toggle('confirmingEangleRemoval')" wire:loading.attr="disabled">
-            {{ __('Cancel') }}
-        </x-secondary-button>
+        <x-slot name="content">
+            {{ __('Are you sure you would like to remove this angle from the analyzed angles?') }}
+        </x-slot>
 
-        <x-danger-button for="fa fa-user-slash" class="ml-2" wire:click="removeEangle" wire:loading.attr="disabled">
-            {{ __('Remove') }}
-        </x-danger-button>
-    </x-slot>
-</x-confirmation-modal>
+        <x-slot name="footer">
+            <x-secondary-button class="btn-outline-hard" for="fa fa-window-close" wire:click="$toggle('confirmingEangleRemoval')" wire:loading.attr="disabled">
+                {{ __('Cancel') }}
+            </x-secondary-button>
+
+            <x-danger-button for="fa fa-user-slash" class="ml-2" wire:click="removeEangle" wire:loading.attr="disabled">
+                {{ __('Remove') }}
+            </x-danger-button>
+        </x-slot>
+    </x-confirmation-modal>
 
 </div>
 @else
