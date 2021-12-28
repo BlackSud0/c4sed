@@ -16,7 +16,10 @@
                 <div class="text-gray-600 mt-1">{{ $task->description }}</div>
             </div>
         </div>
-        <div class="-mt-1 flex items-center text-sm" x-show.transition.in.duration.500ms="open" @click.away="open = false" x-cloak>
+        <span x-show.transition.in.duration.500ms="open" @click.away="open = false" x-cloak class="w-5/6 ml-auto block mt-1 text-sm rounded px-2 py-1 border-2 border-dashed border-gray-400 dark:border-dark-5 text-gray-600 dark:text-gray-400">
+            {{ $task->description }}
+        </span>
+        <div class="mt-1 flex items-center text-sm" x-show.transition.in.duration.500ms="open" @click.away="open = false" x-cloak>
             <button wire:click="returnTask({{$task->id}})" @click="open = false" class="flex zoom-in ml-auto justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg focus:outline-none focus:shadow-outline-gray">
             <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><polyline points="1 4 1 10 7 10"></polyline><polyline points="23 20 23 14 17 14"></polyline><path d="M20.49 9A9 9 0 0 0 5.64 5.64L1 10m22 4l-4.64 4.36A9 9 0 0 1 3.51 15"></path></svg>
             </button>

@@ -14,7 +14,8 @@ class CreateTask extends Component
      * @var
      */
     public $description;
-
+    public $name;
+    
     protected $rules = [
         'description' => 'required|max:100|string'
     ];

@@ -72,23 +72,25 @@
     </a>
 </div>
 
+<section class="container text-gray-600 body-font">
+    <div class="flex flex-col text-center w-full">
+      <h1 class="sm:text-3xl flex mx-auto text-2xl font-medium title-font mb-3 text-gray-900 dark:text-gray-300">
+            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-1 mt-1 text-theme-24"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><rect x="7" y="7" width="3" height="9"></rect><rect x="14" y="7" width="3" height="5"></rect></svg>
+            To-Do tasks
+      </h1>
+      <p class="lg:w-2/3 mx-auto leading-relaxed text-base text-gray-600 dark:text-gray-400">The main purpose of a to-do list is to provide yourself with a list of your priorities in order to ensure that you don't forget anything and are able to effectively plan out your tasks so that they are all accomplished in the correct time frame.</p>
+    </div>
+</section>
+
 <!-- TODO List -->
-<div class="xxl:pl-6 grid grid-cols-12 gap-6 mb-10">
-    <!-- BEGIN: Important Notes -->
-    <div class="col-span-12 md:col-span-6 xl:col-span-12 mt-3 xxl:mt-8">
-        <div class="flex items-center h-10">
-            <h2 class="my-6 text-xl flex font-semibold text-gray-700 dark:text-gray-200">
-            <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="mr-2 mt-1"><rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect><rect x="7" y="7" width="3" height="9"></rect><rect x="14" y="7" width="3" height="5"></rect></svg>
-                To-Do tasks
-            </h2>
-        </div>
-        <div class="mt-5">
+<div class="grid grid-cols-12 gap-6 mb-10">
+    <div class="col-span-12 md:col-span-6 xl:col-span-12 xxl:mt-8">
+        <div class="mt-2">
             @livewire('tasks.create-task')
         </div>
     </div>
-    <!-- END: Important Notes -->
     <!-- BEGIN: Tasks list -->
-    <div class="col-span-12 md:col-span-6 xl:col-span-6 xxl:col-span-12 mt-3">
+    <div class="col-span-12 md:col-span-6 xl:col-span-6 xxl:col-span-12">
         <div class="flex items-center h-10">
             <h2 class="text-lg font-medium truncate mr-5">
                 Tasks list
@@ -103,7 +105,7 @@
     </div>
     <!-- END: Tasks list -->
     <!-- BEGIN: Recently Completed Tasks -->
-    <div class="col-span-12 md:col-span-6 xl:col-span-6 xxl:col-span-12 mt-3">
+    <div class="col-span-12 md:col-span-6 xl:col-span-6 xxl:col-span-12">
         <div class="flex items-center h-10">
             <h2 class="text-lg font-medium truncate mr-5">
                 Completed Tasks

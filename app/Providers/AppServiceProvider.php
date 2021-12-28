@@ -26,6 +26,9 @@ use App\Contracts\ColumnsCalculations;
 use App\Actions\Eangle\EangleCalculation;
 use App\Contracts\EanglesCalculations;
 
+use App\Actions\App\Actions\Task\TaskManager;
+use App\Contracts\TasksManagers;
+
 class AppServiceProvider extends ServiceProvider
 {
     /**
@@ -61,6 +64,7 @@ class AppServiceProvider extends ServiceProvider
         app()->singleton(BeamsCalculations::class, BeamCalculation::class);
         app()->singleton(ColumnsCalculations::class, ColumnCalculation::class);
         app()->singleton(EanglesCalculations::class, EangleCalculation::class);
+        app()->singleton(TasksManagers::class, TaskManager::class);
     }
 
     /**

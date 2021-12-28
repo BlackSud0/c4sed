@@ -8,7 +8,10 @@
             </div>
             <div class="text-xs text-gray-500 ml-auto">{{ date("M j\, Y", strtotime($task->created_at)) }}</div>
         </div>
-        <div class="-mt-3 mb-3 flex" x-show.transition.in.duration.500ms="open" @click.away="open = false" x-cloak>
+        <span x-show.transition.in.duration.500ms="open" @click.away="open = false" x-cloak class="w-full block -mt-1 text-sm rounded px-2 py-1 border-2 border-dashed border-gray-400 dark:border-dark-5 text-gray-600 dark:text-gray-400">
+            {{ $task->description }}
+        </span>
+        <div class="mt-1 mb-3 flex" x-show.transition.in.duration.500ms="open" @click.away="open = false" x-cloak>
             <button wire:click="taskCompleted({{$task->id}})" @click="open = false" class="flex zoom-in ml-auto justify-between px-2 py-2 text-sm font-medium leading-5 text-purple-600 rounded-lg focus:outline-none focus:shadow-outline-gray">
                 <svg viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" class="w-5 h-5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path><polyline points="22 4 12 14.01 9 11.01"></polyline></svg>
             </button>

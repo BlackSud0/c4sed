@@ -11,7 +11,6 @@
     <link rel="shortcut icon" href="{{ asset('logo.svg') }}" type="image/x-icon">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="{{ asset('assets/css/apps.css') }}" />
-    <link rel="stylesheet" href="{{ asset('assets/css/style.css') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/tailwind.output.css') }}" />
     <link href="{{ asset('assets/css/sweetalert2.min.css') }}" rel="stylesheet">
     
