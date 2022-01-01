@@ -37,9 +37,6 @@
 
                             @if (Route::has('register'))
                                 <a href="{{ route('register') }}" class="inline-flex items-center text-white bg-blue-500 border-0 py-2 px-4 focus:outline-none hover:bg-blue-600 rounded text-base mt-4 md:mt-0">Register
-                                    <!-- <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" class="w-4 h-4 ml-1" viewBox="0 0 24 24">
-                                        <path d="M5 12h14M12 5l7 7-7 7"></path>
-                                    </svg> -->
                                     <svg class="w-5 h-5 ml-2" viewBox="0 0 24 24" width="24" height="24" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"></circle><path d="M8 14s1.5 2 4 2 4-2 4-2"></path><line x1="9" y1="9" x2="9.01" y2="9"></line><line x1="15" y1="9" x2="15.01" y2="9"></line></svg>
                                 </a>
                             @endif
@@ -54,7 +51,7 @@
                 <h1 class="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">Open source steel elements
                     <br class="hidden lg:inline-block">design platform
                 </h1>
-                <p class="mb-8 leading-relaxed">C4SED (Civil 4 steel elements design) is a simplified web-based platform, providing analysis and design of steel elements. With its help, as an engineer, you can shortcut your design process, so you can focus on planning great buildings. The degree of integration, simplicity of input, and speed of design make C4SED the ideal platform for common steel elements calculations and reports.</p>
+                <p class="mb-8 leading-relaxed">C4SED (Civil 4 steel elements design) is a simplified web-based platform that leverages available technologies and solutions to provide a modern & easy way for designing and analyzing steel elements. With its help, as an engineer, you can shortcut your design process, so you can focus on planning great buildings. The degree of integration, simplicity of input, and speed of design make C4SED the ideal platform for common steel elements calculations and reports.</p>
                 <div class="flex justify-center">
                     @if (Route::has('register'))
                         <a href="{{ route('register') }}" class="inline-flex text-white bg-blue-500 border-0 py-2 px-6 focus:outline-none hover:bg-blue-600 rounded text-lg">
@@ -77,6 +74,61 @@
                 </div>
                 <div class="lg:max-w-lg lg:w-full md:w-1/2 w-5/6">
                     <img class="object-cover object-center rounded" alt="hero" src="{{asset('Construction-pana.svg')}}">
+                </div>
+            </div>
+        </section>
+        <section class="text-gray-600 body-font">
+            <div class="container px-12 pb-16 mx-auto">
+                <div class="flex flex-col text-center w-full mb-5">
+                <h1 class="sm:text-3xl text-2xl font-medium title-font mb-4 text-gray-900">Our Team</h1>
+                <p class="lg:w-2/3 mx-auto leading-relaxed text-base">Our team is your team. All of this great work was made by a student team inside the University of Kassala, Faculty of Engineering, Civil Engineering Department, Sudan. A great team is not just about having intelligent people on board, but people, who compliment each other. Get to know our team below.</p>
+                </div>
+                <div class="flex flex-wrap -m-2">
+                    <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+                        <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+                        <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="{{ asset('assets/team/supervisor.png') }}">
+                        <div class="flex-grow">
+                            <h2 class="text-gray-900 title-font font-medium">Abdelgader Hamdan Elsheikh</h2>
+                            <p class="text-gray-500">Supervisor</p>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+                        <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+                        <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="{{ asset('assets/team/student.png') }}">
+                        <div class="flex-grow">
+                            <h2 class="text-gray-900 title-font font-medium">Abbaker Ismael Abbaker</h2>
+                            <p class="text-gray-500">Student</p>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+                        <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+                        <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="{{ asset('assets/team/student-g.png') }}">
+                        <div class="flex-grow">
+                            <h2 class="text-gray-900 title-font font-medium">Esraa Mohamed Ali</h2>
+                            <p class="text-gray-500">Student</p>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+                        <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+                        <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="{{ asset('assets/team/student.png') }}">
+                        <div class="flex-grow">
+                            <h2 class="text-gray-900 title-font font-medium">Nazim Abdelmoti Younis</h2>
+                            <p class="text-gray-500">Student</p>
+                        </div>
+                        </div>
+                    </div>
+                    <div class="p-2 lg:w-1/3 md:w-1/2 w-full">
+                        <div class="h-full flex items-center border-gray-200 border p-4 rounded-lg">
+                        <img alt="team" class="w-16 h-16 bg-gray-100 object-cover object-center flex-shrink-0 rounded-full mr-4" src="{{ asset('assets/team/student.png') }}">
+                        <div class="flex-grow">
+                            <h2 class="text-gray-900 title-font font-medium">Omer Abdallah Bilal</h2>
+                            <p class="text-gray-500">Student</p>
+                        </div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </section>

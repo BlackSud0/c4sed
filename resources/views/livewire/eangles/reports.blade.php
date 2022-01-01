@@ -118,12 +118,12 @@
 
         <div class="flex justify-between p-4">
             <div class="p-4 text-center">
-                <h3 class="text-xl font-semibold">C4SED Director</h3>
+                <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">C4SED Director</h3>
                 <img class="w-24 mx-auto mt-2" alt="hero" src="{{ asset('assets/img/Director.png') }}">
-                <div class="text-xl italic border-b-2 border-dotted border-gray-400 dark:border-gray-600 font-bold text-blue-500" >Omer A. Bilal</div>
+                <div class="text-lg italic border-b-2 border-dotted border-gray-400 dark:border-gray-600 font-bold text-blue-500" >Civil E. Department</div>
             </div>
             <div class="p-4 text-center">
-                <h3 class="text-xl font-semibold">University Of Kassala</h3>
+                <h3 class="text-lg font-semibold text-gray-700 dark:text-gray-300">University Of Kassala <br> Faculty Of Engineering</h3>
                 <img class="w-24 mx-auto mt-2" alt="hero" src="{{ asset('assets/img/Kassala-logo.png') }}">
             </div>
         </div>

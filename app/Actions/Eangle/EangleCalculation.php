@@ -118,14 +118,13 @@ class EangleCalculation implements EanglesCalculations
     }
     
     /**
-     * Validate and calculate a newly analyzed eangle.
+     * Validate and calculate a new Angle.
      *
      * @param  array  $input
      * @return array  $result
      */
     public function calculate($eangle)
     {
-
         // Find a stored eangle data from the Database
         $D = $eangle->D;     // Bolt hole
         $DL = $eangle->DL;    // Dead Load
@@ -133,6 +132,7 @@ class EangleCalculation implements EanglesCalculations
         $WL = $eangle->WL;    // Wind Load
         $eangle_type = $eangle->eangle_type;    // "Single" Or "Double"
         $connection_type = $eangle->connection_type;
+        
         /*
         * Load Combinations.
         */
@@ -147,7 +147,6 @@ class EangleCalculation implements EanglesCalculations
         /**
          * Section properties from Database.
          */
-
         $properties = $eangle->designation;
         $mass = $properties->mass;  // mass per metre
         $H = $properties->H;        // The long leg
@@ -155,10 +154,6 @@ class EangleCalculation implements EanglesCalculations
         $t = $properties->t;        // Thickness of angle
         $r1 = $properties->r1;      // Root radius
         $r2 = $properties->r2;      // Toe radius
-        $Cx = $properties->Cx;      // Distance of centre of gravity
-        $rx = $properties->rx;      // Radius of Gyration
-        $Ix = $properties->Ix;      // Second Moment of Area about X-X axis
-        $Sx = $properties->Sx;      // Plastic Modulus about X-X axis
         $A  = $properties->A;       // Area of section
         /**
          * Steel properties from Database.
